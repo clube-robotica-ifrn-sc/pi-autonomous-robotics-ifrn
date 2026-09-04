@@ -1,0 +1,12 @@
+# Ambiente e arquivos locais
+.DS_Store
+Thumbs.db
+
+# Dependências e builds
+bin/
+obj/
+.vscode/
+
+# Arquivos temporários
+*.tmp
+*.log
