@@ -2,43 +2,48 @@
   <img src="assets/img/Campus%20Santa%20Cruz%20-%20Logo_Negat%20Hor.png" alt="Logo IFRN Campus Santa Cruz" width="260" />
 </p>
 
-# Projeto Integrador: Robô Autônomo para a Olimpíada Brasileira de Robótica
+# Tinkerer: construção de robô autônomo e avaliação do conhecimento em robótica na OBR
 
 [![Instituição](https://img.shields.io/badge/IFRN-Campus%20Santa%20Cruz-green.svg)](https://portal.ifrn.edu.br/)
 [![Competição](https://img.shields.io/badge/OBR-N%C3%ADvel%202%20%7C%20N%C3%ADvel%205-blue.svg)](https://www.obr.org.br/)
-[![Plataforma](https://img.shields.io/badge/Hardware-Arduino%20MEGA%202560-00979D.svg)](https://www.arduino.cc/)
-[![Simulador](https://img.shields.io/badge/Virtual-sBotics%20(C%23)-purple.svg)](https://sbotics.net/)
-[![Linguagem](https://img.shields.io/badge/Linguagem-C%2B%2B%20%2F%20C%23-orange.svg)]
+[![Hardware](https://img.shields.io/badge/Hardware-Arduino%20MEGA%202560-00979D.svg)](https://www.arduino.cc/)
+[![Simulação](https://img.shields.io/badge/Simula%C3%A7%C3%A3o-sBotics-orange.svg)](https://sbotics.net/)
+![Linguagem](https://img.shields.io/badge/Linguagem-C%2B%2B%20%2F%20C%23-orange.svg)
 [![Licença](https://img.shields.io/badge/Licen%C3%A7a-MIT-yellow.svg)](LICENSE)
 
-> Repositório com materiais, códigos, simulações e documentação técnica do projeto integrador desenvolvido no Instituto Federal de Educação, Ciência e Tecnologia do Rio Grande do Norte (IFRN) – Campus Santa Cruz.
+> Repositório do estudo de caso desenvolvido no Instituto Federal de Educação, Ciência e Tecnologia do Rio Grande do Norte (IFRN) – Campus Santa Cruz.
 
 ## 1. Apresentação
 
-Este projeto tem como objetivo desenvolver e documentar uma solução tecnológica para a participação de estudantes em competições de robótica educacional, com foco na Olimpíada Brasileira de Robótica (OBR). A proposta foi estruturada como uma iniciativa acadêmica e aplicada, reunindo desenvolvimento de hardware, simulação, programação e fundamentos teóricos em uma base consolidada e reutilizável.
+Este projeto investiga a construção de um robô autônomo e a avaliação do conhecimento em robótica no contexto da Olimpíada Brasileira de Robótica (OBR). A proposta reúne desenvolvimento de hardware, simulação, programação e fundamentação teórica em uma base acadêmica e reutilizável.
 
-A solução contempla o desenvolvimento de um robô autônomo de baixo custo, baseado na plataforma Arduino Mega 2560, capaz de executar tarefas relacionadas ao seguimento de linha, detecção de obstáculos, transposição de rampas e resgate de objetos em ambiente simulado e físico.
+O Tinkerer é um robô autônomo de baixo custo, baseado na plataforma Arduino Mega 2560, projetado para executar tarefas de seguimento de linha, detecção de obstáculos, transposição de rampas e resgate em ambientes físico e simulado.
 
-## 2. Objetivo geral
+## 2. Objetivos
 
-O repositório centraliza uma solução replicável e de baixo custo para a construção e validação de robôs autônomos voltados à OBR, com abordagem pedagógica e técnica que favorece a formação profissional e o aprendizado em áreas como eletrônica, microcontroladores, programação, automação e desenvolvimento de sistemas embarcados.
+### Objetivo geral
+
+Construir e documentar um robô autônomo para a OBR e analisar como o desenvolvimento do protótipo contribui para a aprendizagem e a avaliação do conhecimento em robótica no IFRN Campus Santa Cruz.
+
+### Objetivos específicos
 
 Entre os principais objetivos, destacam-se:
 
-- desenvolver uma plataforma robótica funcional para a modalidade presencial da OBR;
-- implementar um modelo equivalente em ambiente virtual utilizando o simulador sBotics;
+- desenvolver uma plataforma robótica funcional e de baixo custo;
+- implementar um modelo equivalente no simulador sBotics;
 - produzir documentação técnica e material de apoio para futuras equipes;
-- promover a integração entre teoria, prática e metodologia de trabalho em equipe.
+- avaliar conhecimentos de eletrônica, microcontroladores, programação e robótica;
+- promover a integração entre teoria, prática, simulação e trabalho em equipe.
 
-## 3. Escopo do projeto
+## 3. Frentes do projeto
 
 O projeto está organizado em três frentes complementares:
 
-1. Modalidade prática presencial (Nível 2): robô físico com seguimento de linha, desvio de obstáculos, transposição de rampas e mecanismo de resgate.
-2. Modalidade virtual (Nível 2): modelo implementado e validado em ambiente simulado em C#.
-3. Modalidade teórica (Nível 5): material de apoio com fundamentos em eletrônica digital, microcontroladores, lógica de programação e banco de questões resolvidas.
+1. **Robô físico (Nível 2):** seguimento de linha, desvio de obstáculos, transposição de rampas e mecanismo de resgate.
+2. **Robô virtual (Nível 2):** modelo implementado em C# no ambiente sBotics.
+3. **Formação e avaliação (Nível 5):** fundamentos de eletrônica digital, microcontroladores, lógica de programação e questões para acompanhar a aprendizagem.
 
-A base documental foi concebida para reduzir retrabalho, padronizar processos e acelerar a inserção de novas equipes no desenvolvimento do projeto.
+A base documental foi concebida para reduzir retrabalho, registrar evidências e apoiar a inserção de novas equipes no desenvolvimento do projeto.
 
 ## 4. Estado atual da estrutura
 
@@ -62,54 +67,47 @@ A prioridade atual é definir claramente o fluxo de trabalho do projeto e dividi
 
 ## 5. Estrutura do repositório
 
-```text
+O repositório está na etapa de organização e consolidação da base do projeto. A estrutura já separa documentação, hardware, simulação, testes e código-fonte; os módulos de implementação serão preenchidos conforme os incrementos de desenvolvimento e as validações do protótipo.
 .
 ├── README.md
 ├── LICENSE
+├── assets/                 # Imagens e materiais visuais
 ├── docs/
-│   ├── arquitetura/
-│   ├── teoria/
-│   └── relatorios/
+│   ├── arquitetura/        # Arquitetura e decisões técnicas
+│   ├── teoria/             # Fundamentos e material de apoio
+│   └── relatorios/         # Testes, reuniões e resultados
 ├── hardware/
-│   ├── esquematicos/
-│   ├── 3d/
-│   └── componentes/
-├── src/
-│   ├── arduino/
-│   ├── sbotics/
-│   ├── common/
-│   └── tests/
-├── script/
-├── assets/
-├── .github/
-├── .gitignore
-└── LICENSE
+│   ├── 3d/                 # Peças e modelos mecânicos
+│   ├── componentes/        # Lista e documentação de componentes
+│   └── esquematicos/       # Esquemas e diagramas eletrônicos
+├── script/                 # Scripts de automação e suporte
+└── src/
+  ├── arduino/            # Firmware do robô físico
+  ├── common/             # Código compartilhado
+  ├── sbotics/            # Robô virtual e componentes do sBotics
+  └── tests/              # Testes e cenários de validação
 ```
 
 ### Organização por área funcional
 
 - `docs/`: documentação técnica, relatórios, referências teóricas e materiais de apoio.
 - `hardware/`: esquemáticos eletrônicos, peças mecânicas, modelos 3D e materiais de montagem.
-- `src/arduino/`: código-fonte específico para o microcontrolador Arduino e módulos embarcados.
+- `src/arduino/`: código específico para o microcontrolador Arduino.
 - `src/sbotics/`: implementação e testes do robô no ambiente virtual sBotics.
-- `src/common/`: bibliotecas, utilitários e rotinas compartilhadas.
+- `src/common/`: bibliotecas e utilitários reutilizáveis.
 - `src/tests/`: cenários de validação e testes de comportamento.
-- `script/`: scripts de automação, compilação e suporte ao desenvolvimento.
-- `assets/`: imagens, diagramas, vídeos e outros materiais visuais.
-- `.github/`: templates e fluxos de colaboração do repositório.
-- `LICENSE`: termos de distribuição e uso do projeto.
 
 ## 6. Destaques do projeto
 
 - Controle PID discreto para ajuste de trajetória sobre a linha.
-- Arquitetura modular de baixo custo, com foco em soluções acessíveis e adaptáveis.
+- Arquitetura modular de baixo custo, com foco em soluções acessíveis.
 - Mecanismo de resgate em impressão 3D, acionado por servomotor.
-- Validação em ambiente físico e virtual, ampliando a robustez da solução.
-- Documentação técnica aberta, estruturada para apoiar aprendizagem e continuidade de projetos.
+- Validação planejada em ambiente físico e virtual.
+- Documentação técnica aberta para apoiar aprendizagem e continuidade.
 
 ## 7. Metodologia de desenvolvimento
 
-O projeto foi conduzido com abordagem ágil, organizada em ciclos de desenvolvimento e validação por etapas, permitindo evolução incremental do protótipo, da simulação e da documentação.
+O projeto é conduzido em ciclos de desenvolvimento e validação, permitindo evolução incremental do protótipo, da simulação e da documentação.
 
 ### Backlog de incrementos
 
@@ -132,6 +130,21 @@ O projeto foi conduzido com abordagem ágil, organizada em ciclos de desenvolvim
 | Tempo do percurso físico | Tempo total de pista | ≤ 4 min 30 s |
 | Desempenho virtual | Conclusão da missão | ≥ 80% |
 | Simulado teórico | Acertos em prova | ≥ 70% |
+
+## Avaliação da aprendizagem
+
+A avaliação combina evidências do processo e do resultado. Serão considerados a compreensão de eletrônica e microcontroladores, a capacidade de explicar sensores e atuadores, a implementação de algoritmos, o desempenho nos cenários físico e virtual e o registro das decisões da equipe.
+
+Os instrumentos previstos incluem material de apoio, questões teóricas, atividades práticas, testes de simulação e relatórios de evolução. Cada registro deve informar data, objetivo, método, resultado observado e conclusão, distinguindo metas planejadas de resultados já medidos.
+
+## Documentação relacionada
+
+- [Documentação do projeto](docs/README.md)
+- [Arquitetura](docs/arquitetura/README.md)
+- [Base teórica](docs/teoria/README.md)
+- [Relatórios e validações](docs/relatorios/README.md)
+- [Código-fonte](src/README.md)
+- [Componentes do sBotics](src/sbotics/components.md)
 
 ## 8. Resultados esperados
 
