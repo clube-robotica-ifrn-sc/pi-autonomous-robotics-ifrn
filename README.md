@@ -45,29 +45,15 @@ O projeto está organizado em três frentes complementares:
 
 A base documental foi concebida para reduzir retrabalho, registrar evidências e apoiar a inserção de novas equipes no desenvolvimento do projeto.
 
-## 4. Estado atual da estrutura
+## 4. Estado atual
 
-O repositório apresenta a organização inicial do projeto, com pastas destinadas à documentação, ao hardware, à simulação, aos testes e ao código-fonte. Neste momento, os diretórios de implementação ainda estão vazios e o projeto se encontra na etapa de planejamento e consolidação dos requisitos.
+O repositório está na etapa de organização e consolidação da base do projeto. A estrutura separa documentação, hardware, simulação, testes e código-fonte, que serão preenchidos conforme os incrementos de desenvolvimento e as validações do protótipo.
 
-A prioridade atual é definir claramente o fluxo de trabalho do projeto e dividir as responsabilidades entre:
-
-- firmware do robô e sensores;
-- lógica compartilhada e utilitários;
-- simulação virtual no sBotics;
-- testes e validação comportamental;
-- documentação de arquitetura, materiais e relatórios.
-
-### Próximos passos recomendados
-
-1. Definir a arquitetura funcional do robô e seus módulos eletrônicos.
-2. Estabelecer a padronização de nomenclatura e organização de arquivos.
-3. Separar o código em camadas: hardware, lógica, simulação e testes.
-4. Registrar requisitos, decisões técnicas e evidências de validação em documentação.
-5. Criar checklist de desenvolvimento por sprint para acompanhar evolução do projeto.
+As próximas etapas são definir a arquitetura funcional, implementar os módulos do robô, registrar as decisões técnicas e validar os comportamentos em ambiente físico e virtual.
 
 ## 5. Estrutura do repositório
 
-O repositório está na etapa de organização e consolidação da base do projeto. A estrutura já separa documentação, hardware, simulação, testes e código-fonte; os módulos de implementação serão preenchidos conforme os incrementos de desenvolvimento e as validações do protótipo.
+```text
 .
 ├── README.md
 ├── LICENSE
@@ -82,10 +68,10 @@ O repositório está na etapa de organização e consolidação da base do proje
 │   └── esquematicos/       # Esquemas e diagramas eletrônicos
 ├── script/                 # Scripts de automação e suporte
 └── src/
-  ├── arduino/            # Firmware do robô físico
-  ├── common/             # Código compartilhado
-  ├── sbotics/            # Robô virtual e componentes do sBotics
-  └── tests/              # Testes e cenários de validação
+    ├── arduino/            # Firmware do robô físico
+    ├── common/             # Código compartilhado
+    ├── sbotics/            # Robô virtual e componentes do sBotics
+    └── tests/              # Testes e cenários de validação
 ```
 
 ### Organização por área funcional
@@ -131,13 +117,13 @@ O projeto é conduzido em ciclos de desenvolvimento e validação, permitindo ev
 | Desempenho virtual | Conclusão da missão | ≥ 80% |
 | Simulado teórico | Acertos em prova | ≥ 70% |
 
-## Avaliação da aprendizagem
+## 8. Avaliação da aprendizagem
 
 A avaliação combina evidências do processo e do resultado. Serão considerados a compreensão de eletrônica e microcontroladores, a capacidade de explicar sensores e atuadores, a implementação de algoritmos, o desempenho nos cenários físico e virtual e o registro das decisões da equipe.
 
 Os instrumentos previstos incluem material de apoio, questões teóricas, atividades práticas, testes de simulação e relatórios de evolução. Cada registro deve informar data, objetivo, método, resultado observado e conclusão, distinguindo metas planejadas de resultados já medidos.
 
-## Documentação relacionada
+## 9. Documentação relacionada
 
 - [Documentação do projeto](docs/README.md)
 - [Arquitetura](docs/arquitetura/README.md)
@@ -146,7 +132,7 @@ Os instrumentos previstos incluem material de apoio, questões teóricas, ativid
 - [Código-fonte](src/README.md)
 - [Componentes do sBotics](src/sbotics/components.md)
 
-## 8. Resultados esperados
+## 10. Resultados esperados
 
 1. Prototipagem e validação de um robô autônomo capaz de concluir a pista da OBR em tempo competitivo.
 2. Implementação de um modelo virtual replicável e funcional no simulador sBotics.
@@ -154,7 +140,7 @@ Os instrumentos previstos incluem material de apoio, questões teóricas, ativid
 4. Fortalecimento da formação técnica e acadêmica dos estudantes por meio de projetos aplicados.
 5. Ampliação da documentação e da base de conhecimento para futuras equipes e projetos institucionais.
 
-## 9. Equipe e orientação
+## 11. Equipe e orientação
 
 ### Discentes
 
@@ -173,7 +159,7 @@ Os instrumentos previstos incluem material de apoio, questões teóricas, ativid
 - Instituto Federal de Educação, Ciência e Tecnologia do Rio Grande do Norte (IFRN) — Campus Santa Cruz
 - Curso Técnico de Nível Médio em Informática na Forma Integrada
 
-## 10. Licença
+## 12. Licença
 
 Este projeto é distribuído sob a licença MIT. Consulte o arquivo [LICENSE](LICENSE) para obter mais detalhes.
 
