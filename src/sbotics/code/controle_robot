@@ -1,0 +1,224 @@
+const double DistanciaObstaculo = 30;
+const double VelocidadePadrao = 200;
+const double VelocidadeRe = 200;
+const double SentidoFrente = -1;
+int UltimaCorrecao = 0;
+
+Servomotor Servo(string nome) {
+    return Bot.GetComponent<Servomotor>(nome);
+}
+
+ColorSensor SensorCor(string nome) {
+    return Bot.GetComponent<ColorSensor>(nome);
+}
+
+UltrasonicSensor SensorUltrassonico(string nome) {
+    return Bot.GetComponent<UltrasonicSensor>(nome);
+}
+
+TouchSensor SensorToque(string nome) {
+    return Bot.GetComponent<TouchSensor>(nome);
+}
+
+void DestravarMotores() {
+    Servo("sbr").Locked = false;
+    Servo("sbl").Locked = false;
+    Servo("sfr").Locked = false;
+    Servo("sfl").Locked = false;
+}
+
+void AplicarMotor(Servomotor motor, double velocidade) {
+    double alvo = velocidade * SentidoFrente;
+    motor.Apply(Math.Abs(alvo), alvo);
+}
+
+async Task Parar() {
+    DestravarMotores();
+
+    Servo("sbr").Apply(10, 0);
+    Servo("sbl").Apply(10, 0);
+    Servo("sfr").Apply(10, 0);
+    Servo("sfl").Apply(10, 0);
+    await Time.Delay(1);
+}
+
+async Task Frente(double velocidade = VelocidadePadrao) {
+    DestravarMotores();
+
+    AplicarMotor(Servo("sbr"), velocidade);
+    AplicarMotor(Servo("sbl"), velocidade);
+    AplicarMotor(Servo("sfr"), velocidade);
+    AplicarMotor(Servo("sfl"), velocidade);
+    await Time.Delay(1);
+}
+
+async Task Direita(double velocidade = VelocidadePadrao) {
+    Servo("sbr").Apply(10, 0);
+    Servo("sfr").Apply(10, 0);
+    Servo("sbr").Locked = true;
+    Servo("sfr").Locked = true;
+    Servo("sbl").Locked = false;
+    Servo("sfl").Locked = false;
+
+    AplicarMotor(Servo("sbl"), velocidade);
+    AplicarMotor(Servo("sfl"), velocidade);
+    await Time.Delay(50);
+}
+
+async Task Esquerda(double velocidade = VelocidadePadrao) {
+    Servo("sbl").Apply(10, 0);
+    Servo("sfl").Apply(10, 0);
+    Servo("sbr").Locked = false;
+    Servo("sfr").Locked = false;
+    Servo("sbl").Locked = true;
+    Servo("sfl").Locked = true;
+
+    AplicarMotor(Servo("sfr"), velocidade);
+    AplicarMotor(Servo("sbr"), velocidade);
+    await Time.Delay(50);
+}
+
+async Task Re() {
+    DestravarMotores();
+
+    AplicarMotor(Servo("sbr"), -VelocidadeRe);
+    AplicarMotor(Servo("sbl"), -VelocidadeRe);
+    AplicarMotor(Servo("sfr"), -VelocidadeRe);
+    AplicarMotor(Servo("sfl"), -VelocidadeRe);
+    await Time.Delay(150);
+}
+
+bool Linha(ColorSensor sensor) {
+    return !sensor.Digital;
+}
+
+bool Obstaculo(UltrasonicSensor sensor) {
+    return sensor.Digital && sensor.Analog <= DistanciaObstaculo;
+}
+
+async Task DesviarObstaculo(
+    UltrasonicSensor uf,
+    UltrasonicSensor ul,
+    UltrasonicSensor ur) {
+    if (!Obstaculo(uf) && !Obstaculo(ul) && !Obstaculo(ur)) {
+        return;
+    }
+
+    await Parar();
+    await Time.Delay(50);
+
+    if (ul.Analog > ur.Analog) {
+        await Direita(250);
+    } else {
+        await Esquerda(250);
+    }
+}
+
+async Task TratarToque(TouchSensor tr, TouchSensor tl) {
+    if (!tr.Digital && !tl.Digital) {
+        return;
+    }
+
+    await Re();
+
+    if (tr.Digital && !tl.Digital) {
+        await Esquerda(250);
+    } else if (tl.Digital && !tr.Digital) {
+        await Direita(250);
+    } else {
+        await Direita(250);
+    }
+}
+
+async Task SeguirLinha(
+    ColorSensor cfr,
+    ColorSensor cfl,
+    ColorSensor cll,
+    ColorSensor cl,
+    ColorSensor cm,
+    ColorSensor cr,
+    ColorSensor crr) {
+    int posicaoDaLinha = 0;
+    int sensoresNaLinha = 0;
+
+    if (Linha(cll)) {
+        posicaoDaLinha -= 3;
+        sensoresNaLinha++;
+    }
+
+    if (Linha(cl)) {
+        posicaoDaLinha -= 2;
+        sensoresNaLinha++;
+    }
+
+    if (Linha(cfl)) {
+        posicaoDaLinha--;
+        sensoresNaLinha++;
+    }
+
+    if (Linha(cm)) {
+        sensoresNaLinha++;
+    }
+
+    if (Linha(cfr)) {
+        posicaoDaLinha++;
+        sensoresNaLinha++;
+    }
+
+    if (Linha(cr)) {
+        posicaoDaLinha += 2;
+        sensoresNaLinha++;
+    }
+
+    if (Linha(crr)) {
+        posicaoDaLinha += 3;
+        sensoresNaLinha++;
+    }
+
+    if (sensoresNaLinha == 0) {
+        if (UltimaCorrecao < 0) {
+            await Esquerda(160);
+        } else if (UltimaCorrecao > 0) {
+            await Direita(160);
+        } else {
+            await Frente(100);
+        }
+    } else if (posicaoDaLinha < 0) {
+        UltimaCorrecao = -1;
+        await Esquerda(180);
+    } else if (posicaoDaLinha > 0) {
+        UltimaCorrecao = 1;
+        await Direita(180);
+    } else {
+        await Frente(160);
+    }
+}
+
+async Task Main() {
+    var uf = SensorUltrassonico("uf");
+    var ul = SensorUltrassonico("ul");
+    var ur = SensorUltrassonico("ur");
+
+    var cfr = SensorCor("cfr");
+    var cfl = SensorCor("cfl");
+    var cll = SensorCor("cll");
+    var cl = SensorCor("cl");
+    var cm = SensorCor("cm");
+    var cr = SensorCor("cr");
+    var crr = SensorCor("crr");
+
+    var tr = SensorToque("tr");
+    var tl = SensorToque("tl");
+
+    while (true) {
+        if (tr.Digital || tl.Digital) {
+            await TratarToque(tr, tl);
+        } else if (Obstaculo(uf) || Obstaculo(ul) || Obstaculo(ur)) {
+            await DesviarObstaculo(uf, ul, ur);
+        } else {
+            await SeguirLinha(cfr, cfl, cll, cl, cm, cr, crr);
+        }
+
+        await Time.Delay(20);
+    }
+}
