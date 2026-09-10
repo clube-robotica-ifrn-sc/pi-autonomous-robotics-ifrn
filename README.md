@@ -145,7 +145,7 @@ Os instrumentos previstos incluem material de apoio, questões teóricas, ativid
 
 ### Discentes
 
-- Antonny Adryan de Andrade — [Lattes](http://lattes.cnpq.br/3764943485025248) | [ORCID](https://orcid.org/0000-0000-0000-0000)
+- Antonny Adryan de Andrade — [Lattes](http://lattes.cnpq.br/3764943485025248) | [ORCID](https://orcid.org/0009-0004-5904-8129)
 - Cícero Bento Dantas Fernandes — [Lattes](http://lattes.cnpq.br/9661989505513469)
 - Gervásio Filho Souza de Lima — [Lattes](http://lattes.cnpq.br/8523883028703687)
 - Jácio Mauê do Nascimento Silva — [Lattes](http://lattes.cnpq.br/1822484917550390)
