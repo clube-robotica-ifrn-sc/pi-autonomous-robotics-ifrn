@@ -1,8 +1,18 @@
 const double DistanciaObstaculo = 30;
 const double VelocidadePadrao = 200;
 const double VelocidadeRe = 200;
+const double VelocidadeLinha = 140;
+const double KpLinha = 80;
+const double KdLinha = 35;
+const double LimiteGiroEixo = 120;
+const double GanhoGiroscopio = 20;
+const int CiclosAntesDeInverterBusca = 25;
 const double SentidoFrente = -1;
+const bool DiagnosticoAtivo = true;
 int UltimaCorrecao = 0;
+double UltimoErroLinha = 0;
+int CiclosSemLinha = 0;
+double UltimoDiagnostico = 0;
 
 Servomotor Servo(string nome) {
     return Bot.GetComponent<Servomotor>(nome);
@@ -32,29 +42,86 @@ void AplicarMotor(Servomotor motor, double velocidade) {
     motor.Apply(Math.Abs(alvo), alvo);
 }
 
+void AplicarRodas(double velocidadeEsquerda, double velocidadeDireita) {
+    AplicarMotor(Servo("sbl"), velocidadeEsquerda);
+    AplicarMotor(Servo("sfl"), velocidadeEsquerda);
+    AplicarMotor(Servo("sbr"), velocidadeDireita);
+    AplicarMotor(Servo("sfr"), velocidadeDireita);
+}
+
 async Task Parar() {
     DestravarMotores();
 
-    Servo("sbr").Apply(10, 0);
-    Servo("sbl").Apply(10, 0);
-    Servo("sfr").Apply(10, 0);
-    Servo("sfl").Apply(10, 0);
+    Servo("sbr").Apply(0, 0);
+    Servo("sbl").Apply(0, 0);
+    Servo("sfr").Apply(0, 0);
+    Servo("sfl").Apply(0, 0);
     await Time.Delay(1);
 }
 
 async Task Frente(double velocidade = VelocidadePadrao) {
     DestravarMotores();
 
-    AplicarMotor(Servo("sbr"), velocidade);
-    AplicarMotor(Servo("sbl"), velocidade);
-    AplicarMotor(Servo("sfr"), velocidade);
-    AplicarMotor(Servo("sfl"), velocidade);
+    AplicarRodas(velocidade, velocidade);
     await Time.Delay(1);
 }
 
+async Task PulsoGiro(bool paraEsquerda, double velocidade) {
+    if (paraEsquerda) {
+        Servo("sbl").Apply(0, 0);
+        Servo("sfl").Apply(0, 0);
+        Servo("sbl").Locked = true;
+        Servo("sfl").Locked = true;
+        Servo("sbr").Locked = false;
+        Servo("sfr").Locked = false;
+        AplicarMotor(Servo("sbr"), velocidade);
+        AplicarMotor(Servo("sfr"), velocidade);
+    } else {
+        Servo("sbr").Apply(0, 0);
+        Servo("sfr").Apply(0, 0);
+        Servo("sbr").Locked = true;
+        Servo("sfr").Locked = true;
+        Servo("sbl").Locked = false;
+        Servo("sfl").Locked = false;
+        AplicarMotor(Servo("sbl"), velocidade);
+        AplicarMotor(Servo("sfl"), velocidade);
+    }
+
+    await Time.Delay(10);
+}
+
+async Task Curva90(bool paraEsquerda, ColorSensor sensorCentral) {
+    if (paraEsquerda) {
+        await Esquerda(240);
+    } else {
+        await Direita(240);
+    }
+
+    int tempo = 50;
+    while (Linha(sensorCentral) && tempo < 150) {
+        await Time.Delay(10);
+        tempo += 10;
+    }
+
+    while (!Linha(sensorCentral) && tempo < 500) {
+        if (paraEsquerda) {
+            AplicarMotor(Servo("sfr"), 240);
+            AplicarMotor(Servo("sbr"), 240);
+        } else {
+            AplicarMotor(Servo("sfl"), 240);
+            AplicarMotor(Servo("sbl"), 240);
+        }
+
+        await Time.Delay(10);
+        tempo += 10;
+    }
+
+    await Frente(120);
+}
+
 async Task Direita(double velocidade = VelocidadePadrao) {
-    Servo("sbr").Apply(10, 0);
-    Servo("sfr").Apply(10, 0);
+    Servo("sbr").Apply(0, 0);
+    Servo("sfr").Apply(0, 0);
     Servo("sbr").Locked = true;
     Servo("sfr").Locked = true;
     Servo("sbl").Locked = false;
@@ -66,8 +133,8 @@ async Task Direita(double velocidade = VelocidadePadrao) {
 }
 
 async Task Esquerda(double velocidade = VelocidadePadrao) {
-    Servo("sbl").Apply(10, 0);
-    Servo("sfl").Apply(10, 0);
+    Servo("sbl").Apply(0, 0);
+    Servo("sfl").Apply(0, 0);
     Servo("sbr").Locked = false;
     Servo("sfr").Locked = false;
     Servo("sbl").Locked = true;
@@ -88,8 +155,161 @@ async Task Re() {
     await Time.Delay(150);
 }
 
+int Direcao() {
+    double angulo = Bot.Compass;
+    if (angulo < 0) {
+        angulo += 360;
+    }
+
+    return (int)angulo;
+}
+
+int Quadrante() {
+    int angulo = Direcao();
+    if (angulo >= 46 && angulo <= 135) {
+        return 1;
+    }
+
+    if (angulo >= 136 && angulo <= 225) {
+        return 2;
+    }
+
+    if (angulo >= 226 && angulo <= 315) {
+        return 3;
+    }
+
+    return 0;
+}
+
+double ErroAngular(double atual, double alvo) {
+    double erro = (atual - alvo + 540) % 360 - 180;
+    return erro;
+}
+
+async Task IrParaAngulo(int anguloAlvo, int timeoutMs = 1500) {
+    anguloAlvo = ((anguloAlvo % 360) + 360) % 360;
+    double inicio = Time.Timestamp;
+
+    while (Math.Abs(ErroAngular(Direcao(), anguloAlvo)) > 2 &&
+        (Time.Timestamp - inicio) * 1000 < timeoutMs) {
+        double erro = ErroAngular(Direcao(), anguloAlvo);
+        double velocidade = Math.Min(300,
+            Math.Max(80, Math.Abs(erro) * GanhoGiroscopio));
+
+        if (erro > 0) {
+            await Esquerda(velocidade);
+        } else {
+            await Direita(velocidade);
+        }
+    }
+
+    await Parar();
+}
+
+async Task CentralizarGiroscopio(int operacao = 0) {
+    int alvo = Quadrante() * 90;
+
+    if (operacao == 90) {
+        alvo = (alvo + 90) % 360;
+    } else if (operacao == -90) {
+        alvo = (alvo + 270) % 360;
+    } else if (operacao == 180) {
+        alvo = (alvo + 180) % 360;
+    } else if (operacao == 45 || operacao == -45) {
+        alvo = (alvo + operacao + 360) % 360;
+    }
+
+    if (operacao == 45 || operacao == -45) {
+        await IrParaAngulo(alvo, 1000);
+    } else {
+        await IrParaAngulo(alvo);
+    }
+}
+
+async Task SeguirDirecao(double anguloAlvo) {
+    double erro = ErroAngular(Direcao(), anguloAlvo);
+    double correcao = Math.Min(100,
+        Math.Max(-100, erro * GanhoGiroscopio));
+
+    if (Math.Abs(correcao) <= 20) {
+        await Frente(220);
+    } else if (correcao > 0) {
+        DestravarMotores();
+        AplicarRodas(-correcao, 300);
+        await Time.Delay(1);
+    } else {
+        DestravarMotores();
+        AplicarRodas(300, correcao);
+        await Time.Delay(1);
+    }
+}
+
 bool Linha(ColorSensor sensor) {
     return !sensor.Digital;
+}
+
+double IntensidadePreto(ColorSensor sensor) {
+    return Math.Max(0, Math.Min(255, 255 - sensor.Analog.Brightness));
+}
+
+bool EhCor(ColorSensor sensor, Colors cor) {
+    return sensor.Analog.Closest() == cor;
+}
+
+bool CorColorida(ColorSensor sensor) {
+    Colors cor = sensor.Analog.Closest();
+    return cor != Colors.Black && cor != Colors.White;
+}
+
+bool EhVermelho(ColorSensor sensor) {
+    return EhCor(sensor, Colors.Red) &&
+        sensor.Analog.Red / Math.Max(1, sensor.Analog.Blue) > 3.5 &&
+        sensor.Analog.Green < 20;
+}
+
+bool EhVerde(ColorSensor sensor) {
+    return EhCor(sensor, Colors.Green) &&
+        sensor.Analog.Green / Math.Max(1, sensor.Analog.Red) > 4 &&
+        sensor.Analog.Blue < 10;
+}
+
+bool EhAzul(ColorSensor sensor) {
+    return EhCor(sensor, Colors.Blue) &&
+        sensor.Analog.Blue / Math.Max(1, sensor.Analog.Red) > 1.2 &&
+        sensor.Analog.Green < 75;
+}
+
+void ImprimirDiagnostico(
+    ColorSensor cfr,
+    ColorSensor cfl,
+    ColorSensor cll,
+    ColorSensor cl,
+    ColorSensor cm,
+    ColorSensor cr,
+    ColorSensor crr,
+    UltrasonicSensor uf,
+    UltrasonicSensor ul,
+    UltrasonicSensor ur,
+    TouchSensor tr,
+    TouchSensor tl) {
+    if (!DiagnosticoAtivo || Time.Timestamp - UltimoDiagnostico < 0.1) {
+        return;
+    }
+
+    UltimoDiagnostico = Time.Timestamp;
+    IO.PrintLine("Irei ler os componentes! " +
+        $"COR[cfr:{cfr.Digital}/{cfr.Analog.Brightness:0}, " +
+        $"cfl:{cfl.Digital}/{cfl.Analog.Brightness:0}, " +
+        $"cll:{cll.Digital}/{cll.Analog.Brightness:0}, " +
+        $"cl:{cl.Digital}/{cl.Analog.Brightness:0}, " +
+        $"cm:{cm.Digital}/{cm.Analog.Brightness:0}, " +
+        $"cr:{cr.Digital}/{cr.Analog.Brightness:0}, " +
+        $"crr:{crr.Digital}/{crr.Analog.Brightness:0}] " +
+        $"ULT[uf:{uf.Digital}/{uf.Analog:0.0}, " +
+        $"ul:{ul.Digital}/{ul.Analog:0.0}, " +
+        $"ur:{ur.Digital}/{ur.Analog:0.0}] " +
+        $"TOQUE[tr:{tr.Digital},tl:{tl.Digital}] " +
+        $"ERRO:{UltimoErroLinha:0.00} COR:{UltimaCorrecao}");
 }
 
 bool Obstaculo(UltrasonicSensor sensor) {
@@ -107,10 +327,34 @@ async Task DesviarObstaculo(
     await Parar();
     await Time.Delay(50);
 
-    if (ul.Analog > ur.Analog) {
-        await Direita(250);
+    bool esquerdaLivre = !Obstaculo(ul);
+    bool direitaLivre = !Obstaculo(ur);
+    bool virarEsquerda;
+
+    if (esquerdaLivre && !direitaLivre) {
+        virarEsquerda = true;
+    } else if (direitaLivre && !esquerdaLivre) {
+        virarEsquerda = false;
+    } else if (ul.Analog < ur.Analog) {
+        virarEsquerda = false;
     } else {
-        await Esquerda(250);
+        virarEsquerda = true;
+    }
+
+    int tempoGiro = 0;
+    while (Obstaculo(uf) && tempoGiro < 800) {
+        if (virarEsquerda) {
+            await Esquerda(220);
+        } else {
+            await Direita(220);
+        }
+
+        tempoGiro += 50;
+    }
+
+    if (!Obstaculo(uf)) {
+        await Frente(100);
+        await Time.Delay(80);
     }
 }
 
@@ -140,6 +384,48 @@ async Task SeguirLinha(
     ColorSensor crr) {
     int posicaoDaLinha = 0;
     int sensoresNaLinha = 0;
+
+    bool curvaEsquerda90 = Linha(cll) && Linha(cl) && !Linha(cm) &&
+        !Linha(cr) && !Linha(crr);
+    bool curvaDireita90 = Linha(crr) && Linha(cr) && !Linha(cm) &&
+        !Linha(cl) && !Linha(cll);
+
+    if (curvaEsquerda90) {
+        await Curva90(true, cm);
+        UltimaCorrecao = -1;
+        return;
+    }
+
+    if (curvaDireita90) {
+        await Curva90(false, cm);
+        UltimaCorrecao = 1;
+        return;
+    }
+
+    if (Linha(cm)) {
+        UltimaCorrecao = 0;
+        UltimoErroLinha = 0;
+        CiclosSemLinha = 0;
+        await Frente(VelocidadeLinha);
+        return;
+    }
+
+    bool linhaEsquerda = Linha(cll) || Linha(cl);
+    bool linhaDireita = Linha(cr) || Linha(crr);
+
+    if (linhaEsquerda && !linhaDireita) {
+        UltimaCorrecao = -1;
+        CiclosSemLinha = 0;
+        await PulsoGiro(true, 220);
+        return;
+    }
+
+    if (linhaDireita && !linhaEsquerda) {
+        UltimaCorrecao = 1;
+        CiclosSemLinha = 0;
+        await PulsoGiro(false, 220);
+        return;
+    }
 
     if (Linha(cll)) {
         posicaoDaLinha -= 3;
@@ -176,25 +462,75 @@ async Task SeguirLinha(
     }
 
     if (sensoresNaLinha == 0) {
+        CiclosSemLinha++;
+        if (CiclosSemLinha >= CiclosAntesDeInverterBusca) {
+            if (UltimaCorrecao == 0) {
+                UltimaCorrecao = -1;
+            } else {
+                UltimaCorrecao = -UltimaCorrecao;
+            }
+            CiclosSemLinha = 0;
+        }
+
         if (UltimaCorrecao < 0) {
-            await Esquerda(160);
+            await PulsoGiro(true, 160);
         } else if (UltimaCorrecao > 0) {
-            await Direita(160);
+            await PulsoGiro(false, 160);
         } else {
             await Frente(100);
         }
-    } else if (posicaoDaLinha < 0) {
-        UltimaCorrecao = -1;
-        await Esquerda(180);
-    } else if (posicaoDaLinha > 0) {
-        UltimaCorrecao = 1;
-        await Direita(180);
     } else {
-        await Frente(160);
+        CiclosSemLinha = 0;
+        double erro;
+        if (Linha(cm)) {
+            double pretoEsquerda = IntensidadePreto(cl);
+            double pretoDireita = IntensidadePreto(cr);
+            erro = (pretoEsquerda - pretoDireita) / 255;
+        } else {
+            erro = (double)posicaoDaLinha / sensoresNaLinha;
+        }
+        double derivada = erro - UltimoErroLinha;
+        double correcao = (erro * KpLinha) + (derivada * KdLinha);
+        UltimoErroLinha = erro;
+
+        if (Math.Abs(correcao) > LimiteGiroEixo) {
+            if (correcao < 0) {
+                UltimaCorrecao = -1;
+                await PulsoGiro(true, 220);
+            } else {
+                UltimaCorrecao = 1;
+                await PulsoGiro(false, 220);
+            }
+
+            return;
+        }
+
+        double velocidadeBase = Math.Max(90,
+            VelocidadeLinha - (Math.Abs(erro) * 20));
+        double velocidadeEsquerda = Math.Max(20,
+            Math.Min(220, velocidadeBase + correcao));
+        double velocidadeDireita = Math.Max(20,
+            Math.Min(220, velocidadeBase - correcao));
+
+        if (posicaoDaLinha < 0) {
+            UltimaCorrecao = -1;
+        } else if (posicaoDaLinha > 0) {
+            UltimaCorrecao = 1;
+        } else {
+            UltimaCorrecao = 0;
+        }
+
+        DestravarMotores();
+        AplicarRodas(velocidadeEsquerda, velocidadeDireita);
+        await Time.Delay(1);
     }
 }
 
 async Task Main() {
+    IO.OpenConsole();
+    IO.PrintLine("DIAGNOSTICO INICIADO");
+    await Time.Delay(100);
+
     var uf = SensorUltrassonico("uf");
     var ul = SensorUltrassonico("ul");
     var ur = SensorUltrassonico("ur");
@@ -213,12 +549,15 @@ async Task Main() {
     while (true) {
         if (tr.Digital || tl.Digital) {
             await TratarToque(tr, tl);
-        } else if (Obstaculo(uf) || Obstaculo(ul) || Obstaculo(ur)) {
+        } else if (Obstaculo(uf)) {
             await DesviarObstaculo(uf, ul, ur);
         } else {
             await SeguirLinha(cfr, cfl, cll, cl, cm, cr, crr);
         }
 
+        ImprimirDiagnostico(
+            cfr, cfl, cll, cl, cm, cr, crr,
+            uf, ul, ur, tr, tl);
         await Time.Delay(20);
     }
 }
