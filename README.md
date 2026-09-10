@@ -66,6 +66,7 @@ As próximas etapas são definir a arquitetura funcional, implementar os módulo
 │   ├── 3d/                 # Peças e modelos mecânicos
 │   ├── componentes/        # Lista e documentação de componentes
 │   └── esquematicos/       # Esquemas e diagramas eletrônicos
+├── assets/                 # Imagens e materiais visuais
 ├── script/                 # Scripts de automação e suporte
 └── src/
     ├── arduino/            # Firmware do robô físico
@@ -144,10 +145,10 @@ Os instrumentos previstos incluem material de apoio, questões teóricas, ativid
 
 ### Discentes
 
-- [Antonny Adryan de Andrade](http://lattes.cnpq.br/3764943485025248)
-- [Cícero Bento Dantas Fernandes](http://lattes.cnpq.br/9661989505513469)
-- [Gervásio Filho Souza de Lima](http://lattes.cnpq.br/8523883028703687)
-- [Jácio Mauê do Nascimento Silva](http://lattes.cnpq.br/1822484917550390)
+- Antonny Adryan de Andrade — [Lattes](http://lattes.cnpq.br/3764943485025248) | [ORCID](https://orcid.org/0000-0000-0000-0000)
+- Cícero Bento Dantas Fernandes — [Lattes](http://lattes.cnpq.br/9661989505513469)
+- Gervásio Filho Souza de Lima — [Lattes](http://lattes.cnpq.br/8523883028703687)
+- Jácio Mauê do Nascimento Silva — [Lattes](http://lattes.cnpq.br/1822484917550390)
 
 ### Orientação
 
