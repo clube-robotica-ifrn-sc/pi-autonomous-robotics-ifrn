@@ -1,10 +1,10 @@
 # Tinkerer: construção de robô autônomo e mapeamento do conhecimento em robótica
 
-**Instituição:** IFRN — Campus Santa Cruz  
-**Autores:** Antonny Adryan de Andrade; Cícero Bento Dantas Fernandes; Gervásio Filho Souza de Lima; Jácio Mauê do Nascimento Silva  
+**Instituição:** IFRN — Campus Santa Cruz
+**Autores:** Antonny Adryan de Andrade; Cícero Bento Dantas Fernandes; Gervásio Filho Souza de Lima; Jácio Mauê do Nascimento Silva
 **Local e data:** Santa Cruz/RN, agosto de 2026
 
-> Documento convertido e organizado a partir do [DOCX original](Projeto-de-Pesquisa-Tinkerer-Original.docx). O conteúdo técnico foi mantido; figuras e fórmulas extraídas estão em [figuras/](figuras/).
+> Documento convertido e organizado a partir do [DOCX original](Projeto-de-Pesquisa-Tinkerer-Original.docx). O conteúdo técnico foi mantido; as figuras extraídas estão em [figuras/](figuras/), e as equações estão escritas em LaTeX.
 
 ## Navegação
 
@@ -60,8 +60,8 @@ A Robótica Educacional apresenta potencial como recurso para o desenvolvimento 
 
 A relevância deste projeto pauta-se na articulação entre a democratização do acesso à tecnologia de baixo custo, a continuidade da produção científica local e o impacto social na formação discente.Sob a perspectiva técnica e econômica, o uso da plataforma Arduino Mega 2560, combinado ao reaproveitamento de peças e componentes eletrônicos, contribui para a redução do custo de produção do robô, estimado em valor inferior a R$ 800,00. Essa abordagem demonstra a possibilidade de desenvolver um protótipo voltado à participação na OBR utilizando componentes de baixo custo e materiais reaproveitados, reduzindo a dependência de kits proprietários de maior custo financeiro. Tal estratégia está em consonância com a literatura que apresenta o Arduino como uma alternativa de baixo custo para experiências educacionais envolvendo aquisição e controle de dados (SOUZA et al., 2011). Complementarmente, a implementação de um repositório centralizado na plataforma GitHub busca preservar e organizar o conhecimento produzido durante o desenvolvimento do projeto, reduzindo a possibilidade de perda de informações entre diferentes turmas e equipes. Para favorecer a continuidade das atividades e reduzir retrabalho, o projeto será acompanhado por documentação técnica aberta, contendo esquemas, código comentado, critérios de calibração e registros de testes. Dessa forma, o versionamento do código em C++, a organização das simulações e a disponibilização das modelagens constituirão uma base de conhecimento que poderá ser consultada e reutilizada por futuras equipes do campus. No âmbito pedagógico e social, o mapeamento diagnóstico junto aos discentes do IFRN Campus Santa Cruz permitirá identificar o perfil, o interesse e as principais barreiras percebidas pelos estudantes em relação à tecnologia e à robótica. A revisão realizada por Benitti (2012) indica que a robótica educacional apresenta potencial para apoiar a aprendizagem e o desenvolvimento de diferentes habilidades, embora ressalte que seus resultados educacionais não são garantidos pela simples utilização da robótica e que ainda existem limitações nas evidências empíricas disponíveis. Nesse contexto, a produção de documentação técnica aberta e sistematizada constitui uma decisão metodológica do próprio projeto, destinada a organizar o conhecimento produzido durante o desenvolvimento do protótipo e facilitar sua consulta e reutilização por equipes futuras. A investigação diagnóstica proposta poderá fornecer informações para orientar estratégias institucionais relacionadas ao ensino de robótica, à participação em competições científicas e tecnológicas e ao incentivo à formação de novos estudantes na área. Dessa maneira, o projeto também se relaciona aos Objetivos de Desenvolvimento Sustentável 4 (Educação de Qualidade), 9 (Indústria, Inovação e Infraestrutura) e 10 (Redução das Desigualdades), especialmente no que diz respeito à ampliação das oportunidades de aprendizagem tecnológica e ao acesso a soluções de baixo custo. Além dos aspectos técnicos e pedagógicos, serão adotados procedimentos de segurança durante a construção e os testes do protótipo, incluindo medidas de proteção contra curtos-circuitos, cuidados no manuseio dos componentes eletrônicos e utilização de equipamentos de proteção individual durante atividades de soldagem. Também serão observados procedimentos para o descarte ambientalmente adequado de pilhas, baterias e resíduos eletrônicos inservíveis, contribuindo para a segurança da equipe e para a responsabilidade socioambiental do projeto.
 
-  
-  
+
+
 
 ### FUNDAMENTAÇÃO TEÓRICA
 
@@ -179,34 +179,38 @@ Para acioná‑los, utiliza‑se a ponte H, um circuito eletrônico que permite 
 
 ##### Controle PID
 
-Com o intuito de assegurar a precisão no rastreamento de trajetória e a estabilidade durante a transposição de rampas, emprega-se a estratégia de controle Proporcional-Integral-Derivativo (PID). Em sua formulação clássica, o algoritmo combina de maneira contínua as ações proporcional, integral e derivativa para minimizar o erro — definido como a diferença entre a posição desejada (_setpoint_) e a posição indicada pelos sensores infravermelhos em relação ao centro da linha (OGATA, 2010). A parcela proporcional (![Fórmula extraída do documento original](figuras/equacao-01.gif) ) produz uma resposta diretamente proporcional ao erro instantâneo; a parcela integral (![Fórmula extraída do documento original](figuras/equacao-02.gif) ) atua acumulando o erro ao longo do tempo para eliminar desvios em regime permanente; por fim, a parcela derivativa (![Fórmula extraída do documento original](figuras/equacao-03.gif) ) reage à taxa de variação do erro, antecipando sua tendência, promovendo o amortecimento do sistema e reduzindo oscilações. A combinação ponderada dessas três ações determina a correção diferencial de velocidade aplicada aos motores, viabilizando curvas mais suaves e precisas.
+Com o intuito de assegurar a precisão no rastreamento de trajetória e a estabilidade durante a transposição de rampas, emprega-se a estratégia de controle Proporcional-Integral-Derivativo (PID). Em sua formulação clássica, o algoritmo combina de maneira contínua as ações proporcional, integral e derivativa para minimizar o erro — definido como a diferença entre a posição desejada (_setpoint_) e a posição indicada pelos sensores infravermelhos em relação ao centro da linha (OGATA, 2010). A parcela proporcional ($K_p$) produz uma resposta diretamente proporcional ao erro instantâneo; a parcela integral ($K_i$) atua acumulando o erro ao longo do tempo para eliminar desvios em regime permanente; por fim, a parcela derivativa ($K_d$) reage à taxa de variação do erro, antecipando sua tendência, promovendo o amortecimento do sistema e reduzindo oscilações. A combinação ponderada dessas três ações determina a correção diferencial de velocidade aplicada aos motores, viabilizando curvas mais suaves e precisas.
 
 A literatura sobre robótica de produção e _benchmarking_ destaca que documentação padronizada, rastreabilidade e métodos comparáveis são decisivos para permitir reuso, manutenção e evolução do sistema. Isso assegura que o versionamento do código em C++, a organização das simulações e a disponibilização de modelagens constituam uma base de conhecimento duradoura para o campus. O controle PID foi escolhido por sua ampla adoção em sistemas robóticos e por continuar sendo uma solução clássica para aplicações que exigem estabilidade, resposta rápida e boa capacidade de seguimento de trajetória. Contudo, a literatura destaca que seu desempenho depende fortemente de uma sintonia adequada e de critérios explícitos de robustez, desempenho e esforço de controle, especialmente quando há ruído, dinâmica do atuador e perturbações externas.
 
-Em sua formulação discreta para o Arduino MEGA 2560, o algoritmo combina as parcelas proporcional (![Fórmula extraída do documento original](figuras/equacao-01.gif) ), integral (![Fórmula extraída do documento original](figuras/equacao-02.gif) ) e derivativa (![Fórmula extraída do documento original](figuras/equacao-03.gif) ) para minimizar o erro de posição em relação ao centro da linha:
+Em sua formulação discreta para o Arduino MEGA 2560, o algoritmo combina as parcelas proporcional ($K_p$), integral ($K_i$) e derivativa ($K_d$) para minimizar o erro de posição em relação ao centro da linha:
 
-![Equação do controle PID extraída do documento original](figuras/equacao-pid.gif)
+u[k] = K_p e[k] + K_i \Delta t \sum_{j=0}^{k} e[j] + K_d \frac{e[k] - e[k-1]}{\Delta t}$$
+$$
+u[k] = K_p e[k] + K_i \Delta t \sum_{j=0}^{k} e[j] + K_d \frac{e[k] - e[k-1]}{\Delta t}
+$$
 
-Para evitar uma sintonia apenas empírica, o ajuste do PID será tratado como um processo iterativo de validação, combinando um ponto de partida por Ziegler-Nichols com testes repetidos em pista e refinamento dos ganhos a partir do desempenho observado. Essa abordagem é coerente com estudos que recomendam _tuning_ sistemático, avaliação por métricas objetivas e análise do compromisso entre robustez, _overshoot_, tempo de resposta e esforço de controle. A sintonia fina empírica executará 10 repetições variando os ganhos em até $\\pm 20\\%$ até que o Erro Quadrático Médio (MSE) seja minimizado e o _overshoot_ nas curvas fechadas não ultrapasse 5 cm.
+Para evitar uma sintonia apenas empírica, o ajuste do PID será tratado como um processo iterativo de validação, combinando um ponto de partida por Ziegler-Nichols com testes repetidos em pista e refinamento dos ganhos a partir do desempenho observado. Essa abordagem é coerente com estudos que recomendam _tuning_ sistemático, avaliação por métricas objetivas e análise do compromisso entre robustez, _overshoot_, tempo de resposta e esforço de controle. A sintonia fina empírica executará 10 repetições variando os ganhos em até $\pm 20\%$ até que o Erro Quadrático Médio (MSE) seja minimizado e o _overshoot_ nas curvas fechadas não ultrapasse 5 cm.
 
-Para a determinação dos ganhos ![Fórmula extraída do documento original](figuras/equacao-01.gif) , ![Fórmula extraída do documento original](figuras/equacao-02.gif) e ![Fórmula extraída do documento original](figuras/equacao-03.gif) , adota-se um procedimento experimental estruturado em duas etapas. Na primeira etapa, utiliza-se o método de Ziegler-Nichols como ponto de partida: posiciona-se o robô em um trecho reto da pista e eleva-se gradualmente o ganho proporcional (![Fórmula extraída do documento original](figuras/equacao-01.gif) ) até que o sistema apresente oscilações sustentadas e contínuas (ganho crítico ![Fórmula extraída do documento original](figuras/equacao-04.gif) ). O período dessas oscilações (![Fórmula extraída do documento original](figuras/equacao-05.gif) ) é medido para o cálculo dos ganhos iniciais conforme as fórmulas clássicas do método. Na segunda etapa, realiza-se uma sintonia fina empírica: a equipe executa o robô na pista por 10 repetições, variando os ganhos em até $\\pm20\\%$ em relação aos valores calculados, e seleciona a combinação que minimizar o Erro Quadrático Médio (MSE) entre a posição do robô e o centro da linha. O critério de ajuste satisfatório é definido pela ausência de _overshoot_ superior a 5 cm nas curvas fechadas e pela manutenção do robô dentro da faixa de navegação durante toda a reta.
+Para a determinação dos ganhos $K_p$, $K_i$ e $K_d$, adota-se um procedimento experimental estruturado em duas etapas. Na primeira etapa, utiliza-se o método de Ziegler-Nichols como ponto de partida: posiciona-se o robô em um trecho reto da pista e eleva-se gradualmente o ganho proporcional ($K_p$) até que o sistema apresente oscilações sustentadas e contínuas, identificando o ganho crítico $K_u$. O período dessas oscilações ($T_u$) é medido para o cálculo dos ganhos iniciais conforme as fórmulas clássicas do método. Na segunda etapa, realiza-se uma sintonia fina empírica: a equipe executa o robô na pista por 10 repetições, variando os ganhos em até $\pm 20\%$ em relação aos valores calculados, e seleciona a combinação que minimizar o Erro Quadrático Médio (MSE) entre a posição do robô e o centro da linha. O critério de ajuste satisfatório é definido pela ausência de _overshoot_ superior a 5 cm nas curvas fechadas e pela manutenção do robô dentro da faixa de navegação durante toda a reta.
 
-  
+
+
 
 ##### Estratégia de Navegação e Máquina de Estados
 
 A estratégia de navegação será organizada por uma Máquina de Estados Finitos (FSM), pois esse tipo de estrutura favorece comportamento determinístico, modularidade e separação clara entre rotinas concorrentes. No contexto do robô, isso permite integrar seguimento de linha, desvio de obstáculos, transposição de rampa e resgate sem conflito entre decisões de controle, mantendo o sistema mais previsível e fácil de depurar. O fluxo opera sob cinco estados bem delimitados: 'Seguir Linha' (estado padrão sob controle PID), 'Desviar' (ativado por proximidade inferior a 15 cm no sensor ultrassônico), 'Transpor Rampa' (acionado pelo sensor Tilt com compensação de PWM), 'Resgate' (identificação da cor da vítima via TCS-34725 e acionamento da garra) e 'Finalizado' (parada por fim de curso ou emergência).
 
 1.  **Estado 'Seguir Linha' (Padrão):** O controle PID está ativo continuamente, utilizando os sensores infravermelhos para manter o robô centralizado. Neste estado, o sensor ultrassônico é monitorado constantemente. Caso detecte um obstáculo a uma distância inferior a 15 cm, o estado é interrompido e transita para 'Desviar'.
-    
+
 2.  **Estado 'Desviar':** O robô reduz a velocidade, executa um giro de 90 graus (controlado por temporização ou leitura de giroscópio), avança por um curto período e, em seguida, realiza o movimento de realinhamento até que os sensores de linha centrais retornem a detectar a faixa preta. Ao reconquistar a linha, o estado retorna para 'Seguir Linha'.
-    
+
 3.  **Estado 'Transpor Rampa':** Acionado pelo sensor de inclinação (Tilt). Ao detectar a inclinação, o firmware aumenta linearmente o ciclo de trabalho (PWM) dos motores de tração para compensar a perda de atrito. O estado persiste até que o sensor Tilt indique o fim da rampa (plano), quando então retorna ao estado 'Seguir Linha'.
-    
+
 4.  **Estado 'Resgate':** Ativado quando o sensor de cor (TCS-34725) identifica a coloração específica da vítima. O robô para imediatamente, o servomotor é acionado para fechar a garra e, após um breve intervalo, o robô retorna ao estado 'Seguir Linha' para continuar o percurso.
-    
+
 5.  **Estado 'Finalizado':** Estado de parada total, acionado ao final do percurso ou por um botão de emergência.
-    
+
 
 Este modelo de FSM garante que o robô reaja de forma determinística e organizada aos estímulos do ambiente, evitando conflitos entre rotinas concorrentes.
 
@@ -261,16 +265,16 @@ As Modalidades Práticas da Olimpíada Brasileira de Robótica (OBR) são organi
 ###### Nível 2 (Modalidade Prática)
 
 -   Destinada aos alunos regularmente matriculados no 8º ou 9º ano do Ensino Fundamental, no Ensino Médio ou no Ensino Técnico-Integrado.
-    
+
 -   Participa da(s) etapa(s) Regional / Estadual, podendo se classificar para a etapa Nacional e concorrer a uma vaga na Etapa Internacional da RoboCup Jr.
-    
+
 
 ###### Nível 5 (Modalidade Teórica)
 
 -   Nível correspondente à Modalidade Teórica, destinado aos alunos regularmente matriculados no Ensino Médio ou no Ensino Técnico-Integrado, mesmo público-alvo do Nível 2 das modalidades práticas.
-    
+
 -   Consiste em prova objetiva individual, sem participação de robô físico ou virtual, conforme especificações do manual de inscrição da Modalidade Teórica (OBR, 2026).
-    
+
 
 Este projeto está alinhado ao Nível 2 (prático) para o desenvolvimento do robô autônomo e ao Nível 5 (teórico) para a produção do caderno de questões comentadas, ampliando o alcance e o impacto da iniciativa junto aos discentes do IFRN Campus Santa Cruz.
 
@@ -288,14 +292,14 @@ A definição de robô proposta por Matarić (2007) — autônomo, físico, sens
 | Navegação autônoma geral | Máquina de estados finitos + planejamento reativo | Firmware em C++ com loop() principal |
 | Simulação e validação | Ambiente randomizado com modelo de ruídos | SBotics em C# + validação cruzada |
 
-  
-  
+
+
 
 A escolha da plataforma Arduino Mega 2560, das linguagens C++ (firmware) e C# (simulação sBotics) e dos componentes eletrônicos é justificada pela literatura técnica e pela adequação aos regulamentos da OBR, conforme detalhado ao longo deste capítulo. O Arduino Mega 2560 garante autonomia e processamento com 54 pinos digitais e 16 entradas analógicas, atendendo à demanda de múltiplos sensores e atuadores; os sensores especificados fornecem a percepção necessária para o ambiente da pista; e o controle PID assegura que as ações sejam precisas para cumprir o objetivo de percorrer a pista e resgatar vítimas com eficiência e repetibilidade.
 
 A fim de sintetizar a integração entre os componentes de hardware, o firmware e o ambiente da OBR, a Figura 3 apresenta o diagrama de blocos funcional do robô autônomo. A arquitetura é organizada em quatro camadas principais. A Camada de Percepção agrupa os sensores (infravermelho TCRT-5000, ultrassônico HC-SR04, inclinação Tilt e cor TCS-34725) responsáveis pela captura das variáveis físicas da pista. A Camada de Condicionamento e Interface trata os sinais brutos por meio de filtragem (média móvel e debounce), conversão analógico-digital (ADC) e comunicação I2C, entregando dados já estruturados para o processador. A Camada de Processamento e Decisão, sediada no microcontrolador Arduino Mega 2560, executa a lógica central: a Máquina de Estados Finitos (FSM) coordena os estados de navegação (Seguir → Desviar → Rampa → Resgate), enquanto o controle PID discreto calcula a correção de trajetória com base no erro medido. Por fim, a Camada de Ação traduz os sinais de controle em movimentos mecânicos por meio da ponte H L298N e motores DC (tração) e do servomotor MG995 com garra (resgate). O fluxo é realimentado pelo ambiente, fechando o ciclo de percepção–decisão–ação, conforme os princípios de sistemas autônomos definidos por Matarić (2007).
 
-  
+
 
 **Figura 3 – Diagrama de blocos da arquitetura funcional do robô autônomo para a O BR.**
 
@@ -307,33 +311,33 @@ Fonte: Autoria Própria, 2026.
 
 O objetivo geral do projeto é desenvolver um robô autônomo de baixo custo voltado às provas da Olimpíada Brasileira de Robótica (OBR) — integrando simulação no ambiente sBotics, versionamento de código no GitHub e construção mecânica a partir de componentes reaproveitados (dispensando a impressão 3D) —, além de mapear o nível de conhecimento prévio, as percepções e o interesse em robótica educacional entre os discentes do IFRN Campus Santa Cruz.
 
-  
+
 
 Para atingir essa meta, os objetivos específicos são:
 
 1.  Identificar os requisitos técnicos e materiais exigidos pelas modalidades prática (Nível 2), virtual (Nível 2) e teórica (Nível 5) da OBR, consolidando um checklist de conformidade.
-    
-2.  Selecionar componentes eletrônicos, mecânicos e estruturais de baixo custo, disponíveis na instituição ou de fácil aquisição, compatíveis com a plataforma Arduino e com as regras da OBR.
-    
-3.  Desenvolver um protótipo funcional de robô autônomo capaz de executar seguimento de linha (com controle PID calibrado), desvio de obstáculos (via sensor ultrassônico HC-SR04), transposição de rampa e resgate de vítimas com garra atuada por servomotor.
-    
-4.  Validar o desempenho do protótipo em pista simulada física e no ambiente sBotics, medindo tempo de percurso, taxa de sucesso nas tarefas, consumo de energia e aderência às métricas intermediárias de cada trecho da pista.
-    
-5.  Aplicar questionário estruturado, para diagnosticar o nível de conhecimento prévio, as barreiras de entrada e o interesse dos discentes do campus em robótica educacional, com amostra mínima de 100 respondentes.
-    
-6.  Sistematizar todo o conhecimento produzido em um guia técnico aberto (repositório GitHub), estruturado nos seguintes capítulos obrigatórios: (i) **Montagem Mecânica**: instruções ilustradas com fotos ou croquis da garra reaproveitada e disposição estrutural dos sensores; (ii) **Esquemático Elétrico**: diagrama completo de ligação dos componentes ao Arduino Mega, com especificação de resistores, capacitores e pinagem; (iii) **Código Comentado**: firmware em C++ e lógica em C# com explicações linha a linha sobre o PID e a Máquina de Estados; (iv) **Procedimento de Calibração**: passo a passo para sintonia dos ganhos do PID e calibração do sensor de cor; (v) **Protocolo de Testes e Resultados**: tabelas com os dados das execuções e análise estatística; (vi) **Solução de Problemas Frequentes**: lista de erros comuns (ex: falha na leitura do sensor, reinicialização do Arduino) e suas respectivas correções; e (vii) **Caderno Teórico (N5)**: 20 questões comentadas sobre eletrônica, programação e robótica, preparadas para a modalidade teórica da OBR.
-    
-7.  Disseminar os resultados por meio da publicação de artigo científico, apresentação em eventos institucionais (EXPOTEC) e criação de conteúdo multimídia (vídeos tutoriais e posts em redes sociais) para engajamento da comunidade acadêmica e incentivo a novas equipes.
-    
 
-  
+2.  Selecionar componentes eletrônicos, mecânicos e estruturais de baixo custo, disponíveis na instituição ou de fácil aquisição, compatíveis com a plataforma Arduino e com as regras da OBR.
+
+3.  Desenvolver um protótipo funcional de robô autônomo capaz de executar seguimento de linha (com controle PID calibrado), desvio de obstáculos (via sensor ultrassônico HC-SR04), transposição de rampa e resgate de vítimas com garra atuada por servomotor.
+
+4.  Validar o desempenho do protótipo em pista simulada física e no ambiente sBotics, medindo tempo de percurso, taxa de sucesso nas tarefas, consumo de energia e aderência às métricas intermediárias de cada trecho da pista.
+
+5.  Aplicar questionário estruturado, para diagnosticar o nível de conhecimento prévio, as barreiras de entrada e o interesse dos discentes do campus em robótica educacional, com amostra mínima de 100 respondentes.
+
+6.  Sistematizar todo o conhecimento produzido em um guia técnico aberto (repositório GitHub), estruturado nos seguintes capítulos obrigatórios: (i) **Montagem Mecânica**: instruções ilustradas com fotos ou croquis da garra reaproveitada e disposição estrutural dos sensores; (ii) **Esquemático Elétrico**: diagrama completo de ligação dos componentes ao Arduino Mega, com especificação de resistores, capacitores e pinagem; (iii) **Código Comentado**: firmware em C++ e lógica em C# com explicações linha a linha sobre o PID e a Máquina de Estados; (iv) **Procedimento de Calibração**: passo a passo para sintonia dos ganhos do PID e calibração do sensor de cor; (v) **Protocolo de Testes e Resultados**: tabelas com os dados das execuções e análise estatística; (vi) **Solução de Problemas Frequentes**: lista de erros comuns (ex: falha na leitura do sensor, reinicialização do Arduino) e suas respectivas correções; e (vii) **Caderno Teórico (N5)**: 20 questões comentadas sobre eletrônica, programação e robótica, preparadas para a modalidade teórica da OBR.
+
+7.  Disseminar os resultados por meio da publicação de artigo científico, apresentação em eventos institucionais (EXPOTEC) e criação de conteúdo multimídia (vídeos tutoriais e posts em redes sociais) para engajamento da comunidade acadêmica e incentivo a novas equipes.
+
+
+
 
 ### METODOLOGIA DA EXECUÇÃO DO PROJETO
 
-A execução do projeto adota uma abordagem ágil baseada no framework Scrum (SCHWABER; SUTHERLAND, 2020) com sprints quinzenais. Para evidenciar o caráter **incremental e adaptativo** do método, os sprints não serão estágios fixos de desenvolvimento, mas ciclos de melhoria contínua organizados por entregas funcionais acumulativas, onde o feedback dos testes práticos redefine as prioridades do Product Backlog. A estruturação é a seguinte:  
-\- **Sprint 1 (Protótipo Mínimo Viável):** Implementação do seguimento de linha em trecho reto e calibração inicial do PID.  
-\- **Sprint 2 (Incremento):** Adição do desvio de obstáculos e da lógica de navegação; a Sprint Review ajusta os ganhos do PID com base no desempenho em curvas.  
-\- **Sprint 3 (Incremento):** Inclusão da transposição de rampa e do acionamento da garra; a Retrospectiva define ajustes mecânicos.  
+A execução do projeto adota uma abordagem ágil baseada no framework Scrum (SCHWABER; SUTHERLAND, 2020) com sprints quinzenais. Para evidenciar o caráter **incremental e adaptativo** do método, os sprints não serão estágios fixos de desenvolvimento, mas ciclos de melhoria contínua organizados por entregas funcionais acumulativas, onde o feedback dos testes práticos redefine as prioridades do Product Backlog. A estruturação é a seguinte:
+\- **Sprint 1 (Protótipo Mínimo Viável):** Implementação do seguimento de linha em trecho reto e calibração inicial do PID.
+\- **Sprint 2 (Incremento):** Adição do desvio de obstáculos e da lógica de navegação; a Sprint Review ajusta os ganhos do PID com base no desempenho em curvas.
+\- **Sprint 3 (Incremento):** Inclusão da transposição de rampa e do acionamento da garra; a Retrospectiva define ajustes mecânicos.
 \- **Sprint 4 (Incremento):** Integração total do sistema, validação cruzada com o sBotics e finalização da documentação.
 
 O gerenciamento de tarefas será realizado por meio de um quadro Kanban no GitHub Projects, e a rastreabilidade documental será mantida conforme as exigências do SUAP.
@@ -343,34 +347,34 @@ No contexto deste projeto, um dos discentes assume o papel de Product Owner, sen
 Fase 1 – Planejamento Técnico e Simulação Virtual (Semana 1):
 
 -   Anexação da Declaração de Compromisso Ético no ato da submissão do projeto no SUAP
-    
+
 -   Estruturação do repositório GitHub com README, licença, quadro Kanban e templates de documentação.
-    
+
 
 -   Levantamento detalhado dos requisitos da OBR com base nos manuais oficiais (Nível 2 e Nível 5).
-    
+
 -   Modelagem preliminar do robô no sBotics (C#) para teste de lógicas de decisão e pré-calibração dos algoritmos, com ênfase na sintonia dos ganhos do PID em diferentes pistas aleatórias.
-    
+
 -   Definição do Product Backlog com cinco incrementos funcionais e documentais: (i) seguimento de linha; (ii) desvio de obstáculos e transposição de rampa; (iii) garra e resgate; (iv) integração total do sistema; e (v) documentação técnica e caderno teórico. Os quatro primeiros incrementos serão desenvolvidos progressivamente nas Sprints, enquanto o quinto será produzido de forma contínua ao longo do projeto e consolidado na etapa de encerramento.
-    
+
 
 Fase 2 – Prototipagem Eletromecânica e Firmware com PID (2 - 4 Semanas ):
 
 -   Triagem, teste e montagem dos componentes (Arduino MEGA 2560, sensores IR, HC-SR04, ponte H L298N, motores DC, servomotor MG995).
-    
+
 -   Construção da garra adaptada com peças reaproveitadas, dispensando a impressão 3D. Para mitigar o risco mecânico, será adotado um teste de bancada padronizado: a garra será submetida a 50 ciclos de abertura e fechamento com a vítima (objeto padrão de 5 cm) antes da integração ao robô. O critério de aprovação mecânica é a apreensão do objeto em 100% das tentativas sem travamento. Caso a primeira configuração (ex: garra de fricção) falhe, serão testadas arquiteturas alternativas (ex: garra de pinça rígida), assegurando um plano B mecânico para o cronograma.
-    
+
 -   Implementação do firmware em C++ (IDE Arduino) com controle PID discreto, utilizando método de Ziegler-Nichols como ponto de partida para a sintonia, e armazenamento dos ganhos na EEPROM para preservar a calibração. Será implementada uma rotina de calibração semi-automática acionada por botão, que percorre um trecho reto e ajusta o Kp até oscilação sustentada. A ação integral será limitada (anti-windup) para evitar saturação em curvas fechadas.
-    
+
 -   Adoção de procedimentos de biossegurança: uso de óculos de proteção durante cortes e soldas, verificação de curto-circuitos antes da alimentação da placa.
-    
+
 -   A confiabilidade mecânica será tratada como requisito central do projeto, e não apenas como etapa final de ajuste. Isso inclui testar a garra em ciclos repetidos, prever arquitetura alternativa caso a primeira solução falhe e considerar as limitações físicas do conjunto de tração e resgate, uma vez que robôs reais são sensíveis a atrito, folgas, ruído sensorial e erros não modelados. Na prática, a garra adaptada com materiais reaproveitados será submetida a um teste de bancada de 50 ciclos de abertura e fechamento com o objeto de resgate padrão (5 cm). O critério de aprovação fixa 100% de apreensão sem travamento; em caso de falhas, a estrutura de fricção será substituída por uma arquitetura de pinça rígida paralela.
-    
+
 
 Fase 3 – Desenho metodológico da pesquisa social, instrumentos e plano de análise (Mês 2):
 
-  
-  
+
+
 
 A etapa de levantamento com os discentes será importante para mapear o conhecimento prévio, o interesse em robótica educacional e as barreiras de entrada percebidas pela comunidade acadêmica. Esse diagnóstico ajuda a alinhar o projeto às necessidades reais do campus e fortalece a dimensão formativa da proposta, especialmente quando os resultados são analisados por grupos e cruzamentos estatísticos. A amostragem não probabilística por conveniência buscará atingir 100 questionários válidos via Google Forms, divididos em quatro blocos temáticos (Perfil, Conhecimento Objetivo, Atitudes/Interesses e Barreiras Percebidas). Os dados serão tratados via estatística descritiva e tabulações cruzadas entre os diferentes cursos do IFRN Campus Santa Cruz.
 
@@ -381,24 +385,24 @@ Classifica-se como um estudo de levantamento (survey) conforme Gil (2022), de ca
 **Instrumento de Coleta (Questionário):** O questionário estruturado, a ser aplicado via Google Forms, será organizado em quatro blocos temáticos:
 
 -   **Bloco I – Perfil do Respondente:** idade, gênero, curso, série, participação prévia em atividades de robótica/tecnologia.
-    
+
 -   **Bloco II – Conhecimento Objetivo:** 10 questões de múltipla escolha sobre conceitos fundamentais de eletrônica (resistores, diodos, Arduino), programação (estruturas condicionais, variáveis) e robótica (sensores, atuadores, controle PID), com escores variando de 0 a 10.
-    
+
 -   **Bloco III – Atitudes e Interesses:** 12 itens com escala Likert de 5 pontos (1 = Discordo Totalmente, 5 = Concordo Totalmente) sobre motivação, interesse pela OBR e percepção de relevância da robótica.
-    
+
 -   **Bloco IV – Barreiras Percebidas:** 8 itens com escala Likert de 5 pontos sobre dificuldades de acesso a materiais, falta de orientação, tempo disponível e complexidade técnica.
-    
+
 
 **Validação do Instrumento:** O questionário passará por validação de conteúdo por 1 juíz especialista (nas áreas de robótica educacional e metodologia de pesquisa) e por pré-teste com 15 alunos-piloto para verificação de clareza, pertinência e tempo médio de preenchimento (estimado em 15 minutos). A consistência interna será medida pelo alfa de Cronbach, esperando-se valores ≥ 0,70 para os blocos III e IV.
 
 **Plano de Análise de Dados:** Os dados coletados via Google Forms serão exportados diretamente para uma planilha eletrônica (Google Sheets / Excel) para organização e tratamento. A análise será predominantemente **descritiva e exploratória**, adequada ao caráter diagnóstico do estudo, e compreenderá os seguintes procedimentos:
 
 1.  **Análise Descritiva Geral:** Cálculo de frequências absolutas e relativas (porcentagens) para todas as variáveis categóricas (ex: curso, gênero, experiência prévia em robótica). Cálculo de médias, medianas e desvios-padrão para as variáveis numéricas (ex: escore de conhecimento objetivo de 0 a 10; escores médios das escalas Likert de atitude e barreiras).
-    
+
 2.  **Análise Comparativa por Grupos (Cruzamento de Dados):** Tabulação cruzada para comparar os resultados entre diferentes perfis de respondentes (ex: comparar o percentual de alunos com alto interesse em robótica entre aqueles que já tiveram contato com a área e aqueles que nunca tiveram; comparar o escore médio de conhecimento entre alunos do Ensino Médio e do Técnico-Integrado). Essas comparações serão apresentadas em tabelas simples e gráficos de barras, gerados pelas próprias ferramentas do Google Forms ou do Excel.
-    
+
 3.  **Visualização dos Dados:** Geração de gráficos (barras, pizza e boxplots simples) para ilustrar a distribuição das respostas e facilitar a interpretação visual dos principais achados, como os níveis de interesse, as barreiras mais citadas e o desempenho médio nas questões de conhecimento.
-    
+
 
 Os resultados serão organizados em um relatório sucinto, com tabelas e figuras, acompanhados de uma interpretação textual baseada na literatura de referência (Benitti, 2012; Kucuk & Sisman, 2020), com o objetivo de traçar um perfil claro do conhecimento e das percepções dos alunos do campus sobre robótica educacional.
 
@@ -407,22 +411,22 @@ Caso o cronograma oficial da OBR para 2026 não coincida com a fase de validaç�
 Fase 4 – Validação Competitiva e Integração Virtual (Mês 3):
 
 -   Portabilidade completa do código e da lógica para o ambiente sBotics, com validação do robô virtual em 5 pistas sorteadas aleatoriamente, exigindo-se sucesso em pelo menos 3 delas.
-    
+
 -   Participação do protótipo físico e da equipe na fase prática da OBR (caso as datas do calendário oficial coincidam).
-    
+
 -   Comparação entre os resultados obtidos no ambiente físico e na simulação
-    
+
 
 Fase 5 – Análise de Dados, Disseminação e Encerramento (Mês 4 – final):
 
 -   Tabulação estatística das respostas do questionário e cruzamento com os dados de desempenho.
-    
+
 -   Compilação do Guia Técnico de Referência Aberto no GitHub, incluindo esquemáticos, código-fonte comentado, lista de materiais (custo < R$ 800,00), caderno teórico com 20 questões comentadas e instruções detalhadas para a construção da garra reaproveitada, com fotos ou croquis.
-    
+
 -   Organização do acervo fotográfico e de vídeos para comprovação da execução.
-    
+
 -   Redação do relatório final de execução e submissão no módulo Pesquisa do SUAP.
-    
+
 
 O framework Scrum adotado neste projeto segue a definição estabelecida por Schwaber e Sutherland (2020), que descreve o Scrum como um framework leve para geração de valor por meio de soluções adaptativas para problemas complexos. Sua estrutura baseada em Sprints, artefatos (Product Backlog, Sprint Backlog, Incremento) e eventos formais (Sprint Planning, Daily Scrum, Sprint Review, Sprint Retrospective) proporciona a transparência, inspeção e adaptação necessárias para o desenvolvimento incremental do protótipo robótico.
 
@@ -443,20 +447,20 @@ O framework Scrum adotado neste projeto segue a definição estabelecida por Sch
 | Custo do protótipo | Manter o custo de desenvolvimento inferior a R$ 800,00 | Levantamento dos componentes, materiais utilizados e respectivos custos |
 | Caderno teórico | Produzir 20 questões comentadas sobre eletrônica, programação e robótica | Conferência das questões e respectivas respostas/comentários no material produzido |
 
-  
-  
+
+
 
 #### PROCEDIMENTOS DE BIOSSEGURANÇA E GESTÃO AMBIENTAL DE RESÍDUOS
 
 Visando garantir a integridade física dos integrantes e a responsabilidade socioambiental do projeto, foram estabelecidos protocolos rígidos de biossegurança e descarte de materiais:
 
 1.  ##### Biossegurança na Prototipagem Eletromecânica:
-    
+
 
 Soldagem e Montagem:Durante as etapas de soldagem estanhada de conectores e corte de componentes estruturais, é obrigatório o uso de Equipamentos de Proteção Individual (EPIs), incluindo óculos de proteção contra projeção de partículas e queimaduras, além de máscara filtrante em ambientes com ventilação forçada para exaustão de vapores de solda.Manejo Elétrico e Energético:Para prevenção de curtos-circuitos, superaquecimento ou explosão de baterias de Polímero de Lítio (LiPo) / Íon de Lítio (18650), as cargas serão monitoradas por módulos de proteção BMS (Battery Management System) e recarregadas em sacos anti-chama (LiPo Safe Bags). Todas as linhas de alimentação contam com fusíveis de proteção rápidos.
 
 2.  ##### Gestão e Descarte Ambientalmente Adequado (e-Waste):
-    
+
 
 Os resíduos eletrônicos gerados (sobras de fiação, placas danificadas, componentes queimados e baterias degradadas) serão triados e encaminhados ao Ponto de Entrega Voluntária (PEV) de Lixo Eletrônico do IFRN Campus Santa Cruz.
 
@@ -464,7 +468,7 @@ Baterias e pilhas inservíveis receberão destinação final específica em conf
 
 **Tabela 3 - Matriz de Gestão e Mitigação de Riscos**
 
-  
+
 
 | Categoria | Risco Mapeado | Impacto | Ação Preventiva / Plano de Contingência |
 | --- | --- | --- | --- |
@@ -472,7 +476,8 @@ Baterias e pilhas inservíveis receberão destinação final específica em conf
 | Eletroeletrônico | Reset indesejado do microcontrolador Arduino por ruído eletromagnético dos motores DC. | Alto | Separação das fontes de alimentação (7,4V LiPo dedicada à potência e 9V ao Arduino), com GND unificado e desacoplamento via capacitores electrolíticos e diodos flyback 1N4007. |
 | Amostral / Social | Não atingimento do número mínimo de 100 respondentes no formulário diagnóstico. | Médio | Divulgação presencial nas turmas do Ensino Técnico Integrado e Subsequente durante os intervalos, em articulação com os professores das disciplinas do eixo de Tecnologia e Informática. |
 
-  
+
+
 
 ### ACOMPANHAMENTO E AVALIAÇÃO DO PROJETO DURANTE A EXECUÇÃO
 
@@ -481,44 +486,44 @@ O monitoramento contínuo do projeto será realizado por meio de instrumentos de
 **Mecanismos de Acompanhamento da Gestão Ágil**
 
 -   **Quadro Kanban no GitHub Projects:** mapeamento visual e controle quinzenal das tarefas nas etapas To Do, In Progress, In Review e Done.
-    
+
 -   **Histórico de commits e pull requests:** rastreabilidade do avanço no desenvolvimento dos códigos em C++ e C#, com revisão pelo orientador e pelos discentes envolvidos.
-    
+
 -   **Reuniões quinzenais de alinhamento:** encontros presenciais de 1 hora para verificação de metas do sprint, identificação de gargalos técnicos e redistribuição de demandas.
-    
+
 
 **Indicadores e Metas de Avaliação Técnica**
 
-Os critérios de avaliação do protótipo serão definidos com métricas objetivas, como tempo de percurso, taxa de sucesso, repetibilidade e desempenho sob perturbações. Essa escolha segue a recomendação da literatura de _benchmarking_ em controle, que enfatiza o uso de medidas comparáveis para avaliar seguimento de trajetória, rejeição a distúrbios e qualidade do controle em diferentes cenários. Para o protótipo físico, o protocolo experimental prevê 30 repetições válidas na pista de testes, estabelecendo como meta a conclusão do circuito em tempo inferior a 4 minutos em no mínimo 70% das tentativas e um Coeficiente de Variação (![Fórmula extraída do documento original](figuras/equacao-06.gif) ) dos tempos inferior a 15%. Na simulação em sBotics, a taxa de sucesso mínima exigida é de 80% em 5 pistas sorteadas aleatoriamente.
+Os critérios de avaliação do protótipo serão definidos com métricas objetivas, como tempo de percurso, taxa de sucesso, repetibilidade e desempenho sob perturbações. Essa escolha segue a recomendação da literatura de _benchmarking_ em controle, que enfatiza o uso de medidas comparáveis para avaliar seguimento de trajetória, rejeição a distúrbios e qualidade do controle em diferentes cenários. Para o protótipo físico, o protocolo experimental prevê 30 repetições válidas na pista de testes, estabelecendo como meta a conclusão do circuito em tempo inferior a 4 minutos em no mínimo 70% das tentativas e um Coeficiente de Variação ($CV$) dos tempos inferior a 15%.
 
 -   **Desempenho em simulação (sBotics):** o robô virtual será submetido a 5 pistas geradas aleatoriamente, com 30 repetições válidas para cada uma. A taxa de sucesso mínima esperada é de 80% na conclusão do percurso virtual de resgate, sendo considerado sucesso a finalização completa do circuito sem colisões ou intervenção manual. Os dados de tempo e eventos serão registrados automaticamente pelo próprio simulador.
-    
+
 -   **Calibração do controle PID:** redução da margem de erro angular no seguimento de linha, mantendo a oscilação do robô dentro da faixa central de navegação. O ajuste será considerado satisfatório quando o erro quadrático médio (MSE) da posição do robô em relação ao centro da linha for mínimo e não houver overshoot superior a 5 cm nas curvas fechadas.
-    
--   **Tempo de percurso em arena física:** para aferição da performance, será conduzido um protocolo experimental com **30 (trinta) repetições válidas** na pista física, descartando-se apenas tentativas com interferências externas comprovadas (ex: queda de energia ou falha de bateria). O objetivo é que o robô conclua o percurso simulado de resgate em tempo inferior a 4 minutos em pelo menos 70% das tentativas. A **taxa de sucesso** será calculada pela razão entre o número de percursos completos com resgate bem-sucedido e o total de tentativas válidas, expressa em porcentagem. A **repetibilidade** do protótipo será aferida por meio do desvio padrão e do coeficiente de variação (CV) dos tempos de percurso, considerando-se aceitável um CV < 15%. Para o registro das medições, serão utilizados um cronômetro digital sincronizado com a gravação em vídeo (para conferência posterior) e a impressão dos dados seriais do Arduino (via Serial.print), que registrarão o erro do PID e o timestamp de cada evento diretamente em um arquivo .csv para análise estatística descritiva.
-    
+
+-   **Tempo de percurso em arena física:** para aferição da performance, será conduzido um protocolo experimental com **30 (trinta) repetições válidas** na pista física, descartando-se apenas tentativas com interferências externas comprovadas (ex: queda de energia ou falha de bateria). O objetivo é que o robô conclua o percurso simulado de resgate em tempo inferior a 4 minutos em pelo menos 70% das tentativas. A **taxa de sucesso** será calculada pela razão entre o número de percursos completos com resgate bem-sucedido e o total de tentativas válidas, expressa em porcentagem. A **repetibilidade** do protótipo será aferida por meio do desvio padrão e do coeficiente de variação ($CV$) dos tempos de percurso, considerando-se aceitável um $CV$ < 15%. Para o registro das medições, serão utilizados um cronômetro digital sincronizado com a gravação em vídeo (para conferência posterior) e a impressão dos dados seriais do Arduino (via Serial.print), que registrarão o erro do PID e o timestamp de cada evento diretamente em um arquivo .csv para análise estatística descritiva.
+
 
 **Indicadores da Pesquisa Social e Gestão Institucional**
 
 -   **Conformidade ética:** obtenção do parecer de aprovação do CEP/IFRN previamente à coleta de dados, com a devida anexação da Declaração de Compromisso Ético no SUAP.
-    
+
 -   **Amostragem da coleta:** adesão e preenchimento válido de, no mínimo, 100 formulários pelos discentes do IFRN Campus Santa Cruz.
-    
+
 -   **Registro institucional (SUAP):** cumprimento do cronograma, com envio de relatórios parciais e submissão do relatório final no módulo Pesquisa do SUAP.
-    
+
 
 ### RESULTADOS ESPERADOS
 
 -   **Protótipo físico funcional:** desenvolvimento de um robô autônomo de baixo custo (inferior a R$ 800,00), baseado na plataforma Arduino MEGA 2560, empregando controle PID com ênfase nos ganhos proporcional e derivativo para garantia de estabilidade durante o seguimento de linha.
-    
+
 -   **Validação em ambiente virtual:** implementação e teste da lógica de controle e dos algoritmos de tomada de decisão no simulador sBotics, com o robô virtual completando o percurso Nível 2 em, no mínimo, 3 das 5 pistas geradas aleatoriamente.
-    
+
 -   **Repositório técnico aberto:** disponibilização pública, por meio da plataforma GitHub, de toda a documentação técnica produzida, incluindo diagramas esquemáticos dos circuitos elétricos, código-fonte em C++ devidamente comentado e manual de montagem estruturado em etapas, com ênfase no reaproveitamento de materiais.
-    
+
 -   **Mapeamento diagnóstico discente:** aplicação de questionário estruturado junto aos alunos do campus, com o propósito de levantar dados acerca do nível de conhecimento prévio em robótica, das principais dificuldades enfrentadas no aprendizado da área e do grau de interesse por atividades tecnológicas. A coleta será realizada por meio de formulário eletrônico (Google Forms) e terá como meta amostral mínima de 100 respondentes, compatível com uma análise descritiva preliminar, sem prejuízo para as demais entregas do projeto em caso de limitações de prazo.
-    
+
 -   **Disseminação e extensão:** a equipe planeja apresentar o protótipo funcional e os resultados obtidos em eventos institucionais, com ênfase na EXPOTEC 2026, mediante demonstrações ao vivo do robô em operaçã. Com essas ações, espera‑se não apenas compartilhar a experiência adquirida e estimular o interesse pela robótica educacional, mas também fomentar a participação de novos estudantes nas edições futuras da OBR, consolidando, assim, a cultura maker e o pensamento computacional no âmbito do IFRN Campus Santa Cruz.
-    
+
 
 Em síntese, o projeto se sustenta não apenas pela proposta de um robô autônomo funcional, mas pela combinação entre arquitetura modular, sintonia controlada do PID, validação experimental em ambiente virtual e físico, critérios objetivos de desempenho e documentação aberta. Essa integração aumenta a robustez técnica da solução e também a sua replicabilidade, o que é especialmente importante em contextos educacionais e competitivos.
 
