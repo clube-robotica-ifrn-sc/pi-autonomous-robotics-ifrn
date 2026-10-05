@@ -15,9 +15,9 @@
 
 ## 1. Apresentação
 
-Este projeto investiga a construção de um robô autônomo e a avaliação do conhecimento em robótica no contexto da Olimpíada Brasileira de Robótica (OBR). A proposta reúne desenvolvimento de hardware, simulação, programação e fundamentação teórica em uma base acadêmica e reutilizável.
+Este projeto tem como foco a análise dos regulamentos da Olimpíada Brasileira de Robótica (OBR) e o desenvolvimento de um robô autônomo alinhado às exigências das modalidades prática presencial N2, prática virtual N2 e teórica N5. A proposta reúne hardware, simulação, programação, documentação técnica e fundamentação teórica em uma estrutura acadêmica e reutilizável para apoiar a participação da equipe em competições.
 
-O Tinkerer é um robô autônomo de baixo custo, baseado na plataforma Arduino Mega 2560, projetado para executar tarefas de seguimento de linha, detecção de obstáculos, transposição de rampas e resgate em ambientes físico e simulado.
+O Tinkerer é um robô autônomo de baixo custo, baseado na plataforma Arduino Mega 2560, projetado para executar tarefas de seguimento de linha, detecção de obstáculos, transposição de rampas e resgate em ambientes físico e simulado, além de servir como base para a análise de conformidade com as regras oficiais da OBR.
 
 ## 2. Objetivos
 

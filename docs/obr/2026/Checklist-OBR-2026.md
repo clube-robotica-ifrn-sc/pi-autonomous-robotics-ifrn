@@ -1,6 +1,9 @@
 # Checklist de conformidade OBR 2026
 
-Prática Resgate Presencial N2, Prática Virtual Resgate Simulação N2 e Teórica N5. Cada item indica o manual e o caderno de origem.
+Este documento consolida a análise dos regulamentos da Olimpíada Brasileira de Robótica (OBR) para as modalidades de prática Resgate Presencial N2, Resgate Simulação N2 virtual e Teórica N5. Seu objetivo é orientar a equipe no cumprimento das exigências de inscrição, elegibilidade, regras técnicas, integridade e competição, além de facilitar a verificação documental e operacional de cada etapa.
+
+Cada item foi associado ao manual ou caderno de origem correspondente, permitindo rastreabilidade e acompanhamento do cumprimento das normas oficiais da competição.
+
 ## Calendário 2026
 
 | Evento                                 | Período       | Situação em 04/10 |
