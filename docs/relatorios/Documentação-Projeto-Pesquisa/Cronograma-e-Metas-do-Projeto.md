@@ -64,12 +64,12 @@ _Construção de robô autônomo e avaliação do conhecimento em robótica na O
 | 1 | Redação e publicação do guia técnico: montagem mecânica, esquemático elétrico, código comentado, calibração, protocolo de testes e solução de problemas | Antonny Adryan de Andrade | Número de páginas | 6 | De 26/10/2026 até 15/11/2026 | Guia permite que uma equipe futura reproduza o protótipo sem apoio direto da equipe original | Link do repositório GitHub |
 | 2 | Elaboração do caderno teórico com questões comentadas (Nível 5) sobre eletrônica, programação e robótica | Jácio Mauê do Nascimento Silva | Número de questões comentadas | 20 | De 16/11/2026 até 24/11/2026 | Questões alinhadas à BNCC e ao Parecer CNE/CEB nº 2/2022 | Caderno de questões (PDF) |
 
-## Meta 7 — 01/11/2026 até 01/12/2026
+## Meta 7 — 01/10/2026 até 01/12/2026
 
 **Descrição da Meta:** Disseminação dos resultados junto à comunidade acadêmica
 
 | Ordem | Descrição | Responsável | Indicador Quantitativo | Qtd. | Período | Indicador Qualitativo | Forma de Comprovação |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | Redação e submissão de artigo/trabalho científico com os resultados do projeto | Antonny Adryan de Andrade | Artigo/trabalho submetido | 1 | De 01/11/2026 até 25/11/2026 | Consistência teórica e metodológica do artigo | Comprovante de submissão |
-| 2 | Apresentação do projeto na EXPOTEC e produção de conteúdo multimídia (vídeos/posts) | Cícero Bento Dantas Fernandes | Produtos de divulgação gerados | 2 (apresentação + conteúdo multimídia) | De 26/11/2026 até 01/12/2026 | Engajamento e interesse de novas equipes despertado a partir da divulgação | Fotos/links das publicações |
+| 1 | Redação e submissão de artigo/trabalho científico com os resultados do projeto | Antonny Adryan de Andrade | Artigo/trabalho submetido | 1 | De 01/10/2026 até 25/11/2026 | Consistência teórica e metodológica do artigo | Comprovante de submissão |
+| 2 | Apresentação do projeto na EXPOTEC e produção de conteúdo multimídia (vídeos/posts) | Cícero Bento Dantas Fernandes | Produtos de divulgação gerados | 2 (apresentação + conteúdo multimídia) | De 26/10/2026 até 01/12/2026 | Engajamento e interesse de novas equipes despertado a partir da divulgação | Fotos/links das publicações |
 
