@@ -5,6 +5,7 @@ Esta pasta reúne toda a documentação técnica, acadêmica e de acompanhamento
 ## Conteúdo sugerido
 
 - `arquitetura/`: visão geral do robô, blocos funcionais e decisões de design.
+- `obr/`: documentos da OBR organizados por edição, como checklists, manuais e prazos.
 - `teoria/`: fundamentos de eletrônica, sensores, controle e robótica.
 - `relatorios/`: registros de testes, reuniões e evolução do projeto.
 
