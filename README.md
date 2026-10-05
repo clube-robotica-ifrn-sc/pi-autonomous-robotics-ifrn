@@ -138,6 +138,8 @@ Os instrumentos previstos incluem material de apoio, questões teóricas, ativid
 - [Arquitetura](docs/arquitetura/README.md)
 - [Base teórica](docs/teoria/README.md)
 - [Relatórios e validações](docs/relatorios/README.md)
+- [Projeto de pesquisa Tinkerer](docs/relatorios/Documentação-Projeto-Pesquisa/Projeto-de-Pesquisa-Tinkerer.md)
+- [Cronograma e metas do projeto](docs/relatorios/Documentação-Projeto-Pesquisa/Cronograma-e-Metas-do-Projeto.md)
 - [Código-fonte](src/README.md)
 - [Componentes do sBotics](src/sbotics/components.md)
 

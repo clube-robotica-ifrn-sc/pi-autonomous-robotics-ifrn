@@ -1,15 +1,15 @@
-# Relatórios
+# Relatórios e estudos
 
-Este diretório deve armazenar resultados de testes, reuniões e validações do projeto.
+Esta seção reúne documentos de planejamento, estudos do projeto e registros de execução, testes e validações.
 
-## Registros esperados
+## Documentação do projeto Tinkerer
 
-- relatórios de testes de sensores;
-- comparativos de desempenho;
-- resultados de simulação;
-- decisões técnicas por sprint;
-- evidências de evolução do protótipo.
+- [Projeto de pesquisa Tinkerer](Documentação-Projeto-Pesquisa/Projeto-de-Pesquisa-Tinkerer.md): objetivos, fundamentação, metodologia, critérios de avaliação e referências.
+- [Cronograma e metas do projeto](Documentação-Projeto-Pesquisa/Cronograma-e-Metas-do-Projeto.md): atividades, responsáveis, indicadores e formas de comprovação.
+- [Documento original em DOCX](Documentação-Projeto-Pesquisa/Projeto-de-Pesquisa-Tinkerer-Original.docx).
 
-## Recomendação
+## Registros de execução
 
-Cada relatório deve conter: data, objetivo, método, resultados e conclusões.
+Use esta área para documentar testes de sensores, comparações de desempenho, resultados de simulação, decisões técnicas e evolução do protótipo.
+
+Cada registro deve informar data, objetivo, método, resultados observados e conclusão. Diferencie resultados medidos de metas planejadas e, quando possível, inclua evidências como tabelas, fotos, vídeos ou logs.
