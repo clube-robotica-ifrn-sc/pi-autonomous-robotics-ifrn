@@ -1,6 +1,6 @@
 # Checklist de conformidade OBR 2026
 
-Prática Resgate Presencial N2, Prática Virtual Resgate Simulação N2 e Teórica N5. Cada item indica o manual e o caderno de origem. já que tu vai corrigir, tira isso e ver os que tem o **[confirmar]**  pfvr, eu n sei se já ta feito D:. isso vale pro docx tbm
+Prática Resgate Presencial N2, Prática Virtual Resgate Simulação N2 e Teórica N5. Cada item indica o manual e o caderno de origem.
 ## Calendário 2026
 
 | Evento                                 | Período       | Situação em 04/10 |
@@ -8,7 +8,7 @@ Prática Resgate Presencial N2, Prática Virtual Resgate Simulação N2 e Teóri
 | Inscrição prática                      | 11/03 a 30/04 | Encerrada         |
 | Etapas regionais/estaduais presenciais | 29/05 a 13/09 | Encerradas        |
 | Etapa Nacional presencial              | 23 a 27/11    | Aberta            |
-| Nacional Virtual Simulação             | Não divulgada | Confirmar         |
+| Nacional Virtual Simulação             | Não divulgada | Não divulgada     |
 | Inscrição teórica, níveis 0 a 5        | 11/03 a 12/06 | Encerrada         |
 | Teórica Fase 1                         | 08/06 a 12/06 | Encerrada         |
 | Teórica Fase 2, Nível 5                | 13/08         | Encerrada         |
@@ -17,8 +17,8 @@ Prática Resgate Presencial N2, Prática Virtual Resgate Simulação N2 e Teóri
 
 ### Elegibilidade do aluno
 
-- [ ] Aluno matriculado no 8º ou 9º ano do Fundamental, no Ensino Médio ou no Técnico-Integrado. O nível vem do ano escolar, não da idade. _(MP-Insc · Azul, Verde)_ **[confirmar]**
-- [ ] Manual de inscrição: no máximo 19 anos em 2026, sem fazer 20 até o fim da competição (novembro). O manual de regras do presencial diz 19 anos em 1º de julho de 2026. _(MP-Insc · Verde)_ **[confirmar]**
+- [ ] Aluno matriculado no 8º ou 9º ano do Fundamental, no Ensino Médio ou no Técnico-Integrado. O nível vem do ano escolar, não da idade. _(MP-Insc · Azul, Verde)_
+- [ ] Manual de inscrição: no máximo 19 anos em 2026, sem fazer 20 até o fim da competição (novembro). O manual de regras do presencial diz 19 anos em 1º de julho de 2026. _(MP-Insc · Verde)_
 - [ ] Todos os integrantes da equipe são do mesmo nível, e a equipe pertence a um só nível. _(MP-Insc · Azul)_
 - [ ] Aluno em uma única equipe presencial (Resgate ou Artística). Pode também estar em uma equipe Virtual. _(MP-Insc · Azul)_
 - [ ] Aluno inscrito por um único técnico. _(MP-Insc · Verde)_
@@ -45,8 +45,8 @@ Prática Resgate Presencial N2, Prática Virtual Resgate Simulação N2 e Teóri
 ### Confirmação
 
 - [ ] Emitir e conferir o Relatório de Inscrição: professor, aluno, instituição, modalidade, nível e estado da inscrição. _(MP-Insc · Rosa)_
-- [ ] Presencial: termos de participação e uso de imagem assinados digitalmente. Cada aluno tem 2 assinaturas, do responsável e do diretor da instituição. _(MP-Insc · Rosa)_ **[confirmar]**
-- [ ] Equipe sem assinatura de pelo menos 2 membros fica Pendente. _(MP-Insc · Rosa)_ **[confirmar]**
+- [ ] Presencial: termos de participação e uso de imagem assinados digitalmente. Cada aluno tem 2 assinaturas, do responsável e do diretor da instituição. _(MP-Insc · Rosa)_
+- [ ] Equipe sem assinatura de pelo menos 2 membros fica Pendente. _(MP-Insc · Rosa)_
 - [ ] Sem troca de integrantes ao avançar de etapa (regional, estadual, nacional). _(MP-Insc · Azul)_
 - [ ] Dúvidas e problemas só pelos formulários oficiais da OBR, sem e-mail avulso. _(MP-Insc · Preto)_
 
@@ -56,7 +56,7 @@ _feito com base no manual de regras regional/estadual (capa v1.1, jul/2026). Eta
 
 ### Idade e equipe
 
-- [ ] Nível 2: 8º ou 9º ano do Fundamental, Ensino Médio ou Técnico Integrado, com no máximo 19 anos em 1º de julho de 2026. _(Regras-Presencial · Vermelho)_ **[confirmar]**
+- [ ] Nível 2: 8º ou 9º ano do Fundamental, Ensino Médio ou Técnico Integrado, com no máximo 19 anos em 1º de julho de 2026. _(Regras-Presencial · Vermelho)_
 - [ ] 2 a 4 estudantes mais 1 professor ou técnico. Um estudante em uma só equipe do Resgate presencial, em um só nível. _(Regras-Presencial · Vermelho)_
 - [ ] Sem alteração de equipe após o prazo de inscrição. Só equipe reduzida a 1 aluno pode mudar, pelo e-mail obr@robocup.org.br. _(Regras-Presencial · Vermelho)_
 - [ ] Cadastro no sistema de competição idêntico ao do Olimpo, senão a equipe é desclassificada. _(Regras-Presencial · Vermelho)_
@@ -119,7 +119,7 @@ _feito com base no manual de regras regional/estadual (capa v1.1, jul/2026). Eta
 
 - [ ] 3 rodadas em arenas diferentes, descarta-se a menor e somam-se as duas maiores. O empate segue os critérios do manual (soma dos tempos e demais). _(Regras-Presencial · Vermelho)_
 - [ ] Medalhas de ouro, prata e bronze aos 3 primeiros do Regional ou Estadual. Todos os presentes recebem certificado de participação. _(Regras-Presencial · Vermelho)_
-- [ ] Manual da Etapa Nacional presencial (23 a 27/11) ainda não recebido. Confirmar com a organização e com o representante estadual. _(MP-Insc · Verde)_ **[confirmar]**
+- [ ] Manual da Etapa Nacional presencial (23 a 27/11) ainda não recebido. Acompanhar a organização e o representante estadual. _(MP-Insc · Verde)_
 
 ## C. Prática virtual: Resgate Simulação N2 (Nacional)
 
@@ -143,7 +143,7 @@ _Baseado no manual v1.0.
 ### Rodadas
 
 - [ ] 3 rodadas em 3 arenas diferentes. Descarta-se a menor pontuação e somam-se as duas maiores. _(Simulação · Vermelho)_
-- [ ] Janelas: 1ª das 09:00 às 12:30, 2ª das 11:30 às 15:30, 3ª das 14:30 às 18:00. O manual não informa o fuso horário. _(Simulação · Vermelho)_ **[confirmar]**
+- [ ] Janelas: 1ª das 09:00 às 12:30, 2ª das 11:30 às 15:30, 3ª das 14:30 às 18:00. O manual não informa o fuso horário. _(Simulação · Vermelho)_
 - [ ] Execução que ultrapassa o horário final da rodada não conta. Evitar rodar perto do fim da janela. _(Simulação · Vermelho)_
 - [ ] Só o Líder gera o código da rodada. O código é único e intransferível, e perdê-lo obriga a desistir da rodada. Uma participação por rodada. _(Simulação · Vermelho)_
 - [ ] Calibração de iluminação feita antes e inserida no programa oficial. Não há pré-mapeamento de arena nem da área de resgate. _(Simulação · Vermelho)_
@@ -201,7 +201,7 @@ _Qualquer ano do Ensino Médio ou Técnico. Fase 1 e Fase 2._
 - [ ] Lista de presença do Olimpo (leva até 24 h para gerar), assinada por todos os alunos e enviada ao sistema. _(MT-Aplicação · Verde, Branco)_
 - [ ] Correção no Olimpo por planilha ou individual. Cada versão de prova usa planilha própria, em branco para questão em branco, sem alterar IDs nem nomes. _(MT-Aplicação · Vermelho)_
 - [ ] Recurso de gabarito pelo formulário oficial, só no período indicado. Anulação dá o ponto a todos os alunos. _(MT-Aplicação · Branco)_
-- [ ] Classificação para a Fase 2 pela nota de corte, divulgada nas redes da OBR. _(MT-Aplicação · Azul)_ **[confirmar]**
+- [ ] Classificação para a Fase 2 pela nota de corte, divulgada nas redes da OBR. _(MT-Aplicação · Azul)_
 
 ### Prazos da Fase 1 e da Fase 2 (todos já vencidos)
 
