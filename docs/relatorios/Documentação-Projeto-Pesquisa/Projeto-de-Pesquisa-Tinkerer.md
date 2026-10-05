@@ -185,7 +185,6 @@ A literatura sobre robótica de produção e _benchmarking_ destaca que document
 
 Em sua formulação discreta para o Arduino MEGA 2560, o algoritmo combina as parcelas proporcional ($K_p$), integral ($K_i$) e derivativa ($K_d$) para minimizar o erro de posição em relação ao centro da linha:
 
-u[k] = K_p e[k] + K_i \Delta t \sum_{j=0}^{k} e[j] + K_d \frac{e[k] - e[k-1]}{\Delta t}$$
 $$
 u[k] = K_p e[k] + K_i \Delta t \sum_{j=0}^{k} e[j] + K_d \frac{e[k] - e[k-1]}{\Delta t}
 $$
