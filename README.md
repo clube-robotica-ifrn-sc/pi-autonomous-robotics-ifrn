@@ -55,32 +55,40 @@ As próximas etapas são definir a arquitetura funcional, implementar os módulo
 
 ```text
 .
-├── README.md
+├── .gitignore
 ├── LICENSE
-├── assets/                 # Imagens e materiais visuais
+├── README.md
+├── assets/
+│   └── img/                # Identidade visual e imagens do projeto
 ├── docs/
 │   ├── arquitetura/        # Arquitetura e decisões técnicas
-│   ├── teoria/             # Fundamentos e material de apoio
-│   └── relatorios/         # Testes, reuniões e resultados
+│   ├── obr/
+│   │   └── 2026/           # Checklist e documentos da competição
+│   ├── relatorios/         # Testes, reuniões e resultados
+│   └── teoria/             # Fundamentos e material de apoio
 ├── hardware/
 │   ├── 3d/                 # Peças e modelos mecânicos
 │   ├── componentes/        # Lista e documentação de componentes
 │   └── esquematicos/       # Esquemas e diagramas eletrônicos
-├── assets/                 # Imagens e materiais visuais
 ├── script/                 # Scripts de automação e suporte
-└── src/
+└── src/                    # Código-fonte e artefatos dos robôs
     ├── arduino/            # Firmware do robô físico
     ├── common/             # Código compartilhado
-    ├── sbotics/            # Robô virtual e componentes do sBotics
+    ├── sbotics/
+    │   ├── code/           # Código-fonte para o sBotics
+    │   ├── robots/         # Arquivos de robôs do sBotics
+    │   └── components.md   # Componentes usados na simulação
     └── tests/              # Testes e cenários de validação
 ```
 
 ### Organização por área funcional
 
 - `docs/`: documentação técnica, relatórios, referências teóricas e materiais de apoio.
+- `docs/obr/`: regulamentos, checklists e documentos da OBR organizados por edição.
 - `hardware/`: esquemáticos eletrônicos, peças mecânicas, modelos 3D e materiais de montagem.
+- `script/`: scripts auxiliares e tarefas de automação do repositório.
 - `src/arduino/`: código específico para o microcontrolador Arduino.
-- `src/sbotics/`: implementação e testes do robô no ambiente virtual sBotics.
+- `src/sbotics/`: código e arquivos dos robôs do ambiente virtual sBotics.
 - `src/common/`: bibliotecas e utilitários reutilizáveis.
 - `src/tests/`: cenários de validação e testes de comportamento.
 
