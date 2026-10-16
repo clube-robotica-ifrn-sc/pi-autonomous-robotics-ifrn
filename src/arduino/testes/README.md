@@ -21,6 +21,15 @@ motor.
 3. Registre o sketch, a bateria e a pinagem no relatório de teste.
 4. Desligue a alimentação antes de trocar fios ou componentes.
 
+### Refletância
+
+No sketch `03_refletancia`, mantenha cada sensor sobre uma superfície por
+alguns segundos e envie `P` no monitor serial para registrar mínimo, máximo,
+média e faixa. Envie `R` antes de cada condição (piso claro e linha preta),
+para que as estatísticas não misturem as duas medições. Salve as linhas CSV e
+o resumo no registro de teste; elas permitem comparar contraste e repetibilidade
+antes de definir o limiar usado no firmware principal.
+
 O sketch de sonares usa a tabela da pinagem oficial (`D22/D24`, `D16/D17`
 e `D23/D25`) e assume a ordem `TRIG/ECHO`. Confirme a ordem física dos fios
 antes de conectar. O teste de I²C apenas detecta endereços; ele não substitui
