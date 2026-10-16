@@ -2,13 +2,15 @@
 
 Este diretório reúne os módulos de software do projeto.
 
-## Organização sugerida
+## Organização
 
 - `arduino/`: firmware do robô embarcado.
 - `common/`: bibliotecas e utilitários reutilizáveis.
 - `sbotics/`: lógica da simulação virtual.
 - `tests/`: testes automatizados ou cenários de verificação.
 
+O firmware inicial de bancada está em [`arduino/Tinkerer/Tinkerer.ino`](arduino/Tinkerer/Tinkerer.ino). Ele cobre leitura de linha, controle diferencial, PID PD e parada por botão; os demais módulos devem ser integrados depois dos testes unitários.
+
 ## Recomendação
 
-Manter separação clara entre lógica embarcada, compartilhada e simulada para evitar acoplamento e facilitar manutenção.
+Manter separação clara entre lógica embarcada, compartilhada e simulada para evitar acoplamento e facilitar manutenção. Os procedimentos de validação estão em [`tests/README.md`](tests/README.md).

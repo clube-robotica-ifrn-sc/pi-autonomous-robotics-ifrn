@@ -4,6 +4,8 @@ Este documento organiza o plano de execução em metas, atividades, responsávei
 
 [Voltar à proposta do projeto](Projeto-de-Pesquisa-Tinkerer.md) · [DOCX original](Projeto-de-Pesquisa-Tinkerer-Original.docx)
 
+O cronograma define metas planejadas. A situação real e as evidências devem ser registradas no [Plano de execução e evidências](../Plano-de-Execucao.md); uma data vencida não significa que a atividade foi concluída.
+
 ---
 
 _Construção de robô autônomo e avaliação do conhecimento em robótica na OBR — IFRN Campus Santa Cruz_
@@ -72,4 +74,3 @@ _Construção de robô autônomo e avaliação do conhecimento em robótica na O
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1 | Redação e submissão de artigo/trabalho científico com os resultados do projeto | Antonny Adryan de Andrade | Artigo/trabalho submetido | 1 | De 01/10/2026 até 25/11/2026 | Consistência teórica e metodológica do artigo | Comprovante de submissão |
 | 2 | Apresentação do projeto na EXPOTEC e produção de conteúdo multimídia (vídeos/posts) | Cícero Bento Dantas Fernandes | Produtos de divulgação gerados | 2 (apresentação + conteúdo multimídia) | De 26/10/2026 até 01/12/2026 | Engajamento e interesse de novas equipes despertado a partir da divulgação | Fotos/links das publicações |
-

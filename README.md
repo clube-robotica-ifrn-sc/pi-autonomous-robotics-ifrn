@@ -47,9 +47,9 @@ A base documental foi concebida para reduzir retrabalho, registrar evidências e
 
 ## 4. Estado atual
 
-O repositório está na etapa de organização e consolidação da base do projeto. A estrutura separa documentação, hardware, simulação, testes e código-fonte, que serão preenchidos conforme os incrementos de desenvolvimento e as validações do protótipo.
+O repositório está na etapa de organização e consolidação da base do projeto. Já existe um firmware inicial de bancada para Arduino, documentação preliminar de pinagem e materiais, código de simulação e um protocolo de testes. A integração física, a aquisição dos componentes e as medições de desempenho ainda precisam de evidências.
 
-As próximas etapas são definir a arquitetura funcional, implementar os módulos do robô, registrar as decisões técnicas e validar os comportamentos em ambiente físico e virtual.
+O acompanhamento detalhado está em [Plano de execução e evidências](docs/relatorios/Plano-de-Execucao.md). As próximas etapas são confirmar a arquitetura elétrica, implementar os módulos do robô, registrar as decisões técnicas e validar os comportamentos em ambiente físico e virtual.
 
 ## 5. Estrutura do repositório
 
@@ -69,7 +69,8 @@ As próximas etapas são definir a arquitetura funcional, implementar os módulo
 ├── hardware/
 │   ├── 3d/                 # Peças e modelos mecânicos
 │   ├── componentes/        # Lista e documentação de componentes
-│   └── esquematicos/       # Esquemas e diagramas eletrônicos
+│   ├── esquematicos/       # Esquemas e diagramas eletrônicos
+│   └── pcb/                # Projetos e análise das placas de circuito impresso
 ├── script/                 # Scripts de automação e suporte
 └── src/                    # Código-fonte e artefatos dos robôs
     ├── arduino/            # Firmware do robô físico
@@ -86,6 +87,7 @@ As próximas etapas são definir a arquitetura funcional, implementar os módulo
 - `docs/`: documentação técnica, relatórios, referências teóricas e materiais de apoio.
 - `docs/obr/`: regulamentos, checklists e documentos da OBR organizados por edição.
 - `hardware/`: esquemáticos eletrônicos, peças mecânicas, modelos 3D e materiais de montagem.
+- `hardware/pcb/`: arquivos Eagle e análise do Shield Robótica IFRN-SC usado pelo projeto.
 - `script/`: scripts auxiliares e tarefas de automação do repositório.
 - `src/arduino/`: código específico para o microcontrolador Arduino.
 - `src/sbotics/`: código e arquivos dos robôs do ambiente virtual sBotics.
@@ -122,7 +124,7 @@ O projeto é conduzido em ciclos de desenvolvimento e validação, permitindo ev
 | Desvio de obstáculos | Taxa de sucesso | ≥ 95% |
 | Transposição de rampa | Tempo de subida | < 3 segundos sem perda de tração |
 | Resgate de vítima | Captura e deposição | ≥ 70% |
-| Tempo do percurso físico | Tempo total de pista | ≤ 4 min 30 s |
+| Tempo do percurso físico | Tempo total de pista | < 4 min em pelo menos 70% das tentativas válidas |
 | Desempenho virtual | Conclusão da missão | ≥ 80% |
 | Simulado teórico | Acertos em prova | ≥ 70% |
 
@@ -138,10 +140,12 @@ Os instrumentos previstos incluem material de apoio, questões teóricas, ativid
 - [Arquitetura](docs/arquitetura/README.md)
 - [Base teórica](docs/teoria/README.md)
 - [Relatórios e validações](docs/relatorios/README.md)
+- [Plano de execução e evidências](docs/relatorios/Plano-de-Execucao.md)
 - [Projeto de pesquisa Tinkerer](docs/relatorios/Documentação-Projeto-Pesquisa/Projeto-de-Pesquisa-Tinkerer.md)
 - [Cronograma e metas do projeto](docs/relatorios/Documentação-Projeto-Pesquisa/Cronograma-e-Metas-do-Projeto.md)
 - [Código-fonte](src/README.md)
 - [Componentes do sBotics](src/sbotics/components.md)
+- [Análise do Shield Robótica IFRN-SC](hardware/pcb/README.md)
 
 ## 10. Resultados esperados
 

@@ -7,6 +7,9 @@ Esta seção reúne documentos de planejamento, estudos do projeto e registros d
 - [Projeto de pesquisa Tinkerer](Documentação-Projeto-Pesquisa/Projeto-de-Pesquisa-Tinkerer.md): objetivos, fundamentação, metodologia, critérios de avaliação e referências.
 - [Cronograma e metas do projeto](Documentação-Projeto-Pesquisa/Cronograma-e-Metas-do-Projeto.md): atividades, responsáveis, indicadores e formas de comprovação.
 - [Documento original em DOCX](Documentação-Projeto-Pesquisa/Projeto-de-Pesquisa-Tinkerer-Original.docx).
+- [Plano de execução e evidências](Plano-de-Execucao.md): estado das frentes, critérios de evidência e sequência de trabalho.
+- [Instrumento diagnóstico](Instrumento-Diagnostico.md): rascunho condicionado à aprovação ética e institucional.
+- [Modelo de registro de teste](Modelo-de-Registro-de-Teste.md): formulário para documentar ensaios.
 
 ## Registros de execução
 

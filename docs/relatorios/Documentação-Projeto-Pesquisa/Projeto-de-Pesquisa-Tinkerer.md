@@ -1,4 +1,4 @@
-# Tinkerer: construção de robô autônomo e mapeamento do conhecimento em robótica
+# Tinkerer: construção de robô autônomo e avaliação do conhecimento em robótica
 
 **Instituição:** IFRN — Campus Santa Cruz
 **Autores:** Antonny Adryan de Andrade; Cícero Bento Dantas Fernandes; Gervásio Filho Souza de Lima; Jácio Mauê do Nascimento Silva
@@ -20,6 +20,7 @@
 - [Acompanhamento e avaliação](#acompanhamento-e-avaliacao-do-projeto-durante-a-execucao)
 - [Resultados esperados](#resultados-esperados)
 - [Referências](#referencias-bibliograficas)
+- [Plano de execução e evidências](../Plano-de-Execucao.md)
 
 ---
 
@@ -35,12 +36,16 @@
 | Grupo de Pesquisa | Núcleo de Pesquisa em Automação e Tecnologia da Informação do Trairi |
 | Tem interesse no fomento para custeio | Sim |
 | Classificação TRL | TRL 4 |
-| Comitê de Ética em Pesquisa (CEP) | Não necessário para o uso deste projeto por conta que em nossa instituição indicado pelo coordenador de pesquisa |
+| Comitê de Ética em Pesquisa (CEP) | Pendente de confirmação institucional antes de qualquer coleta com estudantes |
 | Carga Horária do Orientador | 4 horas semanais |
 | Carga Horária dos Discentes | 20 horas semanais (por aluno) |
 | Objetivos da ONU para o Desenvolvimento Sustentável | 4, 9, 10 |
 | Subobjetivos da ONU para o Desenvolvimento Sustentável | 4.4, 4.a, 9.5, 10.2 |
 | Prevê atividades de internacionalização, inclusive participação em eventos internacionais: | Não |
+
+### Nota de controle do projeto
+
+Os itens descritos neste documento são metas e procedimentos planejados. Eles não constituem comprovação de execução. A construção, os testes, as compras e a coleta de dados devem ser registrados em evidências próprias e vinculados ao [plano de execução](../Plano-de-Execucao.md). A aplicação de questionários com estudantes permanece suspensa até a confirmação formal da tramitação ética e institucional.
 
 ## DISCRIMINAÇÃO DO PROJETO
 
@@ -64,7 +69,7 @@ A relevância deste projeto pauta-se na articulação entre a democratização d
 
 A fundamentação teórica constitui a base conceitual sobre a qual se sustentam as escolhas técnicas deste projeto, reunindo os princípios de eletrônica, programação e robótica necessários para justificar cada decisão de hardware e software adotada no desenvolvimento do protótipo. O domínio desses fundamentos é o que permite ao técnico desenvolvedor não apenas reproduzir soluções prontas, mas compreender o porquê de cada escolha de componente e de algoritmo — habilidade reconhecida pela Base Nacional Comum Curricular como parte do eixo de pensamento computacional na educação básica (MINISTÉRIO DA EDUCAÇÃO, 2022; MIOTO et al., 2019). Conforme evidenciado por Brackmann et al. (2017), o desenvolvimento do Pensamento Computacional não depende exclusivamente do uso de tecnologias digitais; atividades práticas e estruturadas, mesmo sem dispositivos eletrônicos, podem produzir ganhos significativos em raciocínio lógico e resolução de problemas. Essa constatação reforça a importância de iniciativas como a Olimpíada Brasileira de Robótica (OBR), que articulam teoria e prática em um ambiente de aprendizagem ativa, e justifica a opção deste projeto por documentar e sistematizar o conhecimento produzido, de modo a reduzir as barreiras de entrada para equipes futuras.
 
-Neste fundamentação, os conceitos são apresentados de forma integrada: parte-se da definição de robótica e de seus elementos essenciais, avança-se para os fundamentos de eletrônica digital e microcontroladores, detalha-se a plataforma Arduino e seus periféricos e, por fim, contextualiza-se a Olimpíada Brasileira de Robótica (OBR), que orienta os requisitos do projeto.
+Nesta fundamentação, os conceitos são apresentados de forma integrada: parte-se da definição de robótica e de seus elementos essenciais, avança-se para os fundamentos de eletrônica digital e microcontroladores, detalha-se a plataforma Arduino e seus periféricos e, por fim, contextualiza-se a Olimpíada Brasileira de Robótica (OBR), que orienta os requisitos do projeto.
 
 ### ROBÓTICA
 
@@ -92,7 +97,7 @@ No ramo da eletrônica, há diversos componentes passivos e ativos que compõem 
 
 ##### ELETRÔNICA DIGITAL
 
-A vertente digital da eletrônica, em particular, representa e processa informação por meio de níveis discretos de tensão – tipicamente dois, associados aos estados lógicos 0 e 1 – em contraposição à eletrônica analógica, que trabalha com variações contínuas de sinal. Conforme Nogueira (2011, p. 9), todo sistema numérico é constituído por um conjunto ordenado de símbolos (dígitos) com regras definidas para operações matemáticas, sendo o número de símbolos denominado base ou raiz. .
+A vertente digital da eletrônica, em particular, representa e processa informação por meio de níveis discretos de tensão – tipicamente dois, associados aos estados lógicos 0 e 1 – em contraposição à eletrônica analógica, que trabalha com variações contínuas de sinal. Conforme Nogueira (2011, p. 9), todo sistema numérico é constituído por um conjunto ordenado de símbolos (dígitos) com regras definidas para operações matemáticas, sendo o número de símbolos denominado base ou raiz.
 
 ###### SISTEMA DE NUMERAÇÃO BINÁRIO
 
@@ -302,6 +307,8 @@ A fim de sintetizar a integração entre os componentes de hardware, o firmware 
 ![Diagrama da arquitetura funcional do robô](figuras/arquitetura-funcional.png)
 
 Fonte: Autoria Própria, 2026.
+
+O projeto da PCB shield disponível no repositório acrescenta uma camada concreta à arquitetura. A placa física antiga identificada pela equipe expõe quatro entradas de refletância em A0–A3, dois sinais de servo em D8–D9, quatro entradas da L298N em D4–D7, três conectores de sonar, MPU/ITG no barramento I²C e conectores auxiliares. Essa pinagem deve prevalecer sobre a proposta genérica da figura. A análise detalhada está em [`hardware/pcb/README.md`](../../../hardware/pcb/README.md).
 
 ### OBJETIVO GERAL
 
@@ -518,7 +525,7 @@ Os critérios de avaliação do protótipo serão definidos com métricas objeti
 
 -   **Mapeamento diagnóstico discente:** aplicação de questionário estruturado junto aos alunos do campus, com o propósito de levantar dados acerca do nível de conhecimento prévio em robótica, das principais dificuldades enfrentadas no aprendizado da área e do grau de interesse por atividades tecnológicas. A coleta será realizada por meio de formulário eletrônico (Google Forms) e terá como meta amostral mínima de 100 respondentes, compatível com uma análise descritiva preliminar, sem prejuízo para as demais entregas do projeto em caso de limitações de prazo.
 
--   **Disseminação e extensão:** a equipe planeja apresentar o protótipo funcional e os resultados obtidos em eventos institucionais, com ênfase na EXPOTEC 2026, mediante demonstrações ao vivo do robô em operaçã. Com essas ações, espera‑se não apenas compartilhar a experiência adquirida e estimular o interesse pela robótica educacional, mas também fomentar a participação de novos estudantes nas edições futuras da OBR, consolidando, assim, a cultura maker e o pensamento computacional no âmbito do IFRN Campus Santa Cruz.
+-   **Disseminação e extensão:** a equipe planeja apresentar o protótipo funcional e os resultados obtidos em eventos institucionais, com ênfase na EXPOTEC 2026, mediante demonstrações ao vivo do robô em operação. Com essas ações, espera‑se não apenas compartilhar a experiência adquirida e estimular o interesse pela robótica educacional, mas também fomentar a participação de novos estudantes nas edições futuras da OBR, consolidando, assim, a cultura maker e o pensamento computacional no âmbito do IFRN Campus Santa Cruz.
 
 
 Em síntese, o projeto se sustenta não apenas pela proposta de um robô autônomo funcional, mas pela combinação entre arquitetura modular, sintonia controlada do PID, validação experimental em ambiente virtual e físico, critérios objetivos de desempenho e documentação aberta. Essa integração aumenta a robustez técnica da solução e também a sua replicabilidade, o que é especialmente importante em contextos educacionais e competitivos.

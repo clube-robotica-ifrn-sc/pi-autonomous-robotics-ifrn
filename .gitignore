@@ -1,12 +1,35 @@
-# Ambiente e arquivos locais
+# Sistema operacional e arquivos locais
 .DS_Store
 Thumbs.db
+.directory
+Desktop.ini
+
+# Editores e ferramentas locais
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
 
 # Dependências e builds
 bin/
 obj/
-.vscode/
+build/
+dist/
+out/
+coverage/
+.cache/
+.tmp/
 
-# Arquivos temporários
+# Variáveis locais e credenciais
+.env
+.env.*
+!.env.example
+*.secret
+*.pem
+*.key
+
+# Arquivos temporários e logs
 *.tmp
 *.log
+*.bak
