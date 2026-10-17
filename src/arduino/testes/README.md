@@ -1,18 +1,18 @@
 # Sketches de teste de bancada
 
-Cada pasta contém um sketch independente para carregar no Arduino Mega 2560.
+Cada arquivo é um sketch independente para carregar no Arduino Mega 2560.
 Carregue somente um sketch por vez e mantenha as rodas suspensas nos testes de
 motor.
 
 | Sketch | Verifica |
 | --- | --- |
-| `01_serial_led` | Arduino, comunicação serial e LED de status |
-| `02_motores` | Motor A e motor B em três velocidades |
-| `03_refletancia` | Quatro sensores analógicos de linha |
-| `04_sonares` | Sonares esquerdo, frontal e direito |
-| `05_servos` | Servo A e Servo B |
-| `06_botoes` | S1, S2, S3 e LEDs da placa |
-| `07_i2c` | Presença de dispositivos no barramento I²C |
+| [`01_serial_led.ino`](01_serial_led.ino) | Arduino, comunicação serial e LED de status |
+| [`02_motores.ino`](02_motores.ino) | Motor A e motor B em três velocidades |
+| [`03_refletancia.ino`](03_refletancia.ino) | Quatro sensores analógicos de linha |
+| [`04_sonares.ino`](04_sonares.ino) | Sonares esquerdo, frontal e direito |
+| [`05_servos.ino`](05_servos.ino) | Servo A e Servo B |
+| [`06_botoes.ino`](06_botoes.ino) | S1, S2, S3 e LEDs da placa |
+| [`07_i2c.ino`](07_i2c.ino) | Presença de dispositivos no barramento I²C |
 
 ## Procedimento
 
@@ -23,7 +23,7 @@ motor.
 
 ### Refletância
 
-No sketch `03_refletancia`, mantenha cada sensor sobre uma superfície por
+No sketch [`03_refletancia.ino`](03_refletancia.ino), mantenha cada sensor sobre uma superfície por
 alguns segundos e envie `P` no monitor serial para registrar mínimo, máximo,
 média e faixa. Envie `R` antes de cada condição (piso claro e linha preta),
 para que as estatísticas não misturem as duas medições. Salve as linhas CSV e
