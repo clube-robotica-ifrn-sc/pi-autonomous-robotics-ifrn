@@ -5,11 +5,8 @@ A placa mostrada pela equipe e documentada no [Mapa Shield](https://jacio-m.gith
 ## Arquivos organizados
 
 - [`projeto-eagle/original/Shield-Robotica-IFRN-SC.zip`](projeto-eagle/original/Shield-Robotica-IFRN-SC.zip): pacote original recebido.
-- [`projeto-eagle/original/shield-mega/`](projeto-eagle/original/shield-mega/): arquivos extraídos do pacote.
-- `*.sch`: esquemáticos Eagle.
-- `*.brd`: layouts das placas Eagle.
-- `*.pro`: projeto Eagle.
-- `*.bmp`: logotipos usados no projeto.
+- [`mapa/`](mapa/README.md): índice de apoio para conferência visual da placa.
+- O ZIP contém os arquivos Eagle originais; eles ainda não foram extraídos nesta árvore.
 
 ## Pinagem confirmada pelo mapa da placa física
 

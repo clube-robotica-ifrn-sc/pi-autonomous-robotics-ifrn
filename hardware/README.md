@@ -4,9 +4,10 @@ Diretório destinado aos itens físicos do projeto.
 
 ## Organização
 
-- `esquematicos/`: diagramas elétricos e conexões.
-- `3d/`: peças e modelos mecânicos.
-- `componentes/`: lista de materiais e fornecedores.
+- [`esquematicos/`](esquematicos/README.md): diagramas elétricos, conexões e pinagem.
+- [`3d/`](3d/README.md): peças e modelos mecânicos.
+- [`componentes/`](componentes/README.md): lista de materiais, fornecedores e compras.
+- [`pcb/`](pcb/README.md): shield, mapa da placa e arquivos de referência.
 
 Documentos iniciais:
 
